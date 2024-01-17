@@ -5,8 +5,9 @@ Base project for FDM 2024 mini bootcamp
 Follow along with this tutorial to ensure your machine is configured and ready to go for the upcoming March 6th bootcamp!
 - [ ] Create GitHub account
 - [ ] Download necessary technology
-- [ ] Complete Tutorial
-- [ ] Clone this project onto your device.
+- [ ] Complete [Tutorial](#tutorial)
+
+Meet other [participants](#participants)!
 
 ## Downloads
 - [Download Java](#download-java)
@@ -31,5 +32,72 @@ Code Integrated Development environments (IDE) are applications that assist deve
 <br /> [VS Code](https://code.visualstudio.com/download)
 <br /> This is a great alternative and supports several languages and extensions. 
 
+## Tutorial
+After completing this brief tutorial, you will have a basic understanding of git necessary for the upcoming bootcamp. 
 
-  
+Step 1: On your account create a project 
+	> Navigate to your profile
+	> Select the 'Repositories' tab
+	> Select 'New' 
+	> Name the repository 'introduction'
+	> You can add a descrition (optional)
+	> Ensure it is public 
+	> Select 'Create Repository' 
+
+Step 2: Clone project to your device 
+	> GitHub provides commands that you can follow along with
+
+Step 3: Add a small introduction about yourself to your README.md and push the changes to the main branch
+	How to push to repositories
+
+	```
+	git add .
+	```
+	> this will add everything in your folder to the repository
+	```
+	git add READ.md
+	```
+	> this will only add the READ.md
+	> When you 'add' items, those items are 'staged' and ready to be committed and pushed to the origin (GitHub copy).
+
+	Check that the correct files are added 
+	```
+	git status
+	```
+	> After you run git status, you can ensure only desired files are staged and have the opporunity to unstage any unnecessary files
+	```
+	git restore --staged <file>
+	```
+
+	```
+	git commit -m "introduction added"
+	git push
+	```
+
+Step 4: Create a new branch called "branched"
+	```
+	git switch -c branched
+
+	```
+	```
+	git checkout branched
+
+	```
+	> Add a new text file to the branch
+	```
+	touch experience.txt
+	```
+	> inside the text file, tell us a little bit about your experience with Java.
+	> push introduction to new branch
+
+Step 5: Clone icode project to your machine
+
+	> In the README.md file, under 'Participants' add the link to your newly created repository
+	[Your Name](http://link)
+	> Push changes with your name as the commit message
+
+Done! You are set to go!
+
+## Participants
+
+[Audrey Puckett](https://github.com/audreypuckett/introduction)
