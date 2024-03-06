@@ -2,7 +2,7 @@
 Base project for FDM 2024 mini bootcamp
 
 ##  Let's get ready for the bootcamp!
-Follow along with this tutorial to ensure your machine is configured and ready to go for the upcoming March 6th bootcamp!
+Follow along with this tutorial to ensure your machine is configured and ready to go for the upcoming March 20th bootcamp!
 - [ ] Create GitHub account
 - [ ] Download necessary technology
 - [ ] Complete [Tutorial](#tutorial)
