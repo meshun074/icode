@@ -4,6 +4,7 @@ Base project for FDM 2024 mini bootcamp
 ##  Let's get ready for the bootcamp!
 Follow along with this tutorial to ensure your machine is configured and ready to go for the upcoming March 20th bootcamp!
 - [ ] Create GitHub account
+- If your GitHub email does not match the email you used to register, please respond back to the acceptance email with your GitHub account email.  		
 - [ ] Download necessary technology
 - [ ] Complete [Tutorial](#tutorial)
 
@@ -93,7 +94,7 @@ Step 4: Create a new branch called "branched"
 
 Step 5: Clone icode project to your machine
 <br /> In the README.md file, under 'Participants' add the link to your newly created repository
-<br />	> \[Your Name](http://link)
+<br />	> \[Your Full Name](http://link) -- Your Full Name should match the name you used to register for this event.
 <br /> Push changes with your name as the commit message
 
 Done! You are set to go!
