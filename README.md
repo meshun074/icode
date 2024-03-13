@@ -102,4 +102,4 @@ Done! You are set to go!
 ## Participants
 
 [Audrey Puckett](https://github.com/audreypuckett/introduction)
-[Michael Eshun](https://github.com/meshun074/Introduction.git)
+>[Michael Eshun](https://github.com/meshun074/Introduction.git)
