@@ -92,10 +92,18 @@ Step 4: Create a new branch called "branched"
 > Inside the text file, tell us a little bit about your experience with Java.
 > Push introduction to new branch.
 
-Step 5: Clone icode project to your machine
-<br /> In the README.md file, under 'Participants' add the link to your newly created repository
+Step 5: Fork icode project to your machine
+> On the top right corner of this repository, Click 'Fork', this will fork the repository to your profile.
+> <img src="https://github.com/audreypuckett/icode/blob/main/tutorial-images/available-on-profile.png"><br /> 
+> Clone the newly forked repository to your machine
+<br /> In the README.md file, under 'Participants' add the link to your newly created introduction repository
 <br />	> \[Your Full Name](http://link) -- Your Full Name should match the name you used to register for this event.
-<br /> Push changes with your name as the commit message
+<br /> Push changes with your name as the commit message <br/>
+> <img src="https://github.com/audreypuckett/icode/blob/main/tutorial-images/clone-forked.png"><br /> 
+> Create a new pull request for the original repository to accept
+> <img src="https://github.com/audreypuckett/icode/blob/main/tutorial-images/complete-tutorial.png"><br /> 
+> Add descriptive comment and complete request by clicking 'Create pull request'
+> <img src="https://github.com/audreypuckett/icode/blob/main/tutorial-images/merge-request.png"><br /> 
 
 Done! You are set to go!
 
