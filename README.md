@@ -124,7 +124,9 @@ Done! You are set to go!
 
 ## Participants
 
-[Audrey Puckett](https://github.com/audreypuckett/introduction)
-
-> [Michael Eshun](https://github.com/meshun074/Introduction.git) [Julie Cheng](https://github.com/jucheng925/introduction) <br /> [Chao Meng](https://github.com/Chao-Meng/introduction)
-<br /> [Diya Patel](https://github.com/42diyapatel/introduction)
+[Audrey Puckett](https://github.com/audreypuckett/introduction) <br />
+[Michael Eshun](https://github.com/meshun074/Introduction.git) <br />
+[Julie Cheng](https://github.com/jucheng925/introduction) <br /> 
+[Chao Meng](https://github.com/Chao-Meng/introduction) <br /> 
+[Diya Patel](https://github.com/42diyapatel/introduction) <br />
+[Christian Tchoutang](https://github.com/ChristDave/introduction) <br />
