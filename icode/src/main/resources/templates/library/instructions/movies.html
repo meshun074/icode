@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" href="data:image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-journal-code' viewBox='0 0 16 16'>
+        <path fill-rule='evenodd' d='M8.646 5.646a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L10.293 8 8.646 6.354a.5.5 0 0 1 0-.708m-1.292 0a.5.5 0 0 0-.708 0l-2 2a.5.5 0 0 0 0 .708l2 2a.5.5 0 0 0 .708-.708L5.707 8l1.647-1.646a.5.5 0 0 0 0-.708'/>
+        <path d='M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2'/>
+        <path d='M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z'/>
+      </svg>">
+	<link rel="stylesheet" th:href="@{/styles.css}">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" th:href="@{/library/libraryCSSFiles/moviesFeature.css}">
+
+	<title>Library Movies Feature Instructions</title>
+</head>
+
+<body>
+	<header th:insert="~{nav :: nav-fragment}"></header>
+	<div class="main-container">
+
+		<div>
+			<h1 class="card-title">Library Movies Feature Instructions</h1>
+			<br>
+			<div class="text-center bg-light">
+				<a class="ex-button" th:href="@{/library}">Library Home</a>
+				<a class="ex-button" th:href="@{/library/movies/movieHome}">Movies Feature Home</a>
+				<a class="ex-button" th:href="@{/library/solutions/movieSolutions}"> Hints</a>
+			</div>
+		</div>
+
+		<section class="instruction-card">
+			<h3>Overview</h3>
+			<p> Welcome to the Library Movie Feature! Film can serve an important literary role especially for younger
+				patrons. This feature allows our patrons to explore our movie catalog.
+				Usually, you can view all movies, add a new movie, search for movies by director, title, or genre, edit
+				a movie's description, and delete a movie.
+				Unfortunately, we have been overrun with error messages. We are glad to see you here to help us fix some
+				bugs and add some new features.
+			</p>
+		</section>
+
+		<section class="instruction-card">
+			<h3>Task 1</h3>
+			<p>
+				The first task is to fix the bug in the "All Movies" page. The bug is that the "All Movies" page is not
+				displaying the movies available to check out.
+				You need to fix the bug so that the "All Movies" page displays the books.
+			</p>
+			<br>
+			<p>
+				To fix the bug, you need to go to the "All Movies" page and check the code to see what is causing the
+				bug.
+				Once you find the bug, you need to fix it and test the "All Movie" page to make sure it is displaying
+				the books. You may need to reference the following annotations or tags:
+			</p>
+			<br />
+			<div class="img-container">
+				<h3>Example UI: </h3>
+				<img th:src="@{/library/moviesImages/allMovies.png}" alt="All Movies Page" class="img-thumbnail">
+			</div>
+			<br />
+			<p>
+			<ol>To Do:
+				<li>Review the "allMovies.html" template </li>
+				<li>Review the "MovieController" class to make sure the correct logic is implemented to render the
+					content.</li>
+				<li>Review the "MovieService" class to make sure the correct logic is implemented to retrieve the
+					movies.</li>
+				<li>Review the "MovieRepository" class to make sure the correct logic is implemented to retrieve the
+					movies.</li>
+			</ol>
+			</p>
+			<br />
+			<p>
+				Once you have fixed the bug, you can move on to the next task....Good Luck!
+			</p>
+		</section>
+
+		<section class="instruction-card">
+			<h3>Task 2</h3>
+			<br />
+			<p> Since a picture is worth a thousand words...the more movies we can bring into the community the stronger
+				we will grow. Our second Task
+				is to add a new feature by adding a new movie to the library catalog.
+			</p>
+			<br />
+			<p>
+				To fix the bug, go to the MovieController to check that the appropriate code is there to render the
+				AddMovie page. Once the correct
+				code is in place, you will need to edit the AddMovie.html page to make sure the form adds a new movie to
+				the Library catalog and redirects
+				users to the allMovies page.
+			</p>
+			<br />
+			<div class="img-container">
+				<h3>Example UI: </h3>
+				<img th:src="@{/library/moviesImages/addMovie.png}" alt="Add Movie Page" class="img-thumbnail">
+			</div>
+			<br>
+			<p>
+			<ol>To Do:
+				<li>Review the "MovieController" class to make sure the correct logic is implemented to render the
+					AddMovie page.</li>
+				<li>Review the "MovieController" class to make sure the correct logic is implemented to add a new movie
+					to the library catalog.</li>
+				<li>Review the "addMovie.html" template to make sure the correct form is implemented to add a new movie
+					to the library catalog.</li>
+			</ol>
+			</p>
+		</section>
+
+
+
+
+		<section class="instruction-card">
+			<h3>Task 3</h3>
+			<br />
+			<p>
+				Our third task is to add a new feature by allowing users to search for movies by title.
+				You need to add a new page that allows users to search for movies by title.
+				Once the user enters the title, the page should display the movie details.
+			</p>
+			<br />
+			<div class="img-container">
+				<h3>Example UI: </h3>
+				<img th:src="@{/library/moviesImages/searchTitle.png}" alt="Search Movies By Title Page"
+					class="img-thumbnail">
+			</div>
+			<br>
+			<p>
+			<ol>To Do:
+				<li>Review the "MovieController" class to make sure the correct logic is implemented to render the
+					SearchMoviesByTitle page.</li>
+				<li>Review the "MovieController" class to make sure the correct logic is implemented to search for
+					movies by title.</li>
+				<li>Review the "MovieService" class to make sure the correct logic is implemented to search for movies
+					by title.</li>
+				<li>Review the "MovieRepository" class to make sure the correct logic is implemented to search for
+					movies by title.</li>
+				<li>Review the "searchMoviesByTitle.html" template to make sure the correct form is implemented to
+					search for movies by title.</li>
+			</ol>
+			</p>
+		</section>
+
+		<section class="instruction-card">
+			<h3>Task 4</h3>
+			<br />
+			<p>
+				Our fourth task is to add a new feature by allowing users to search for movies by director.
+				You need to add a new page that allows users to search for movies by director.
+				Once the user enters the director's name, the page should display the movie details.
+			</p>
+			<br />
+			<div class="img-container">
+				<h3>Example UI: </h3>
+				<img th:src="@{/library/moviesImages/searchDirector.png}" alt="Search Movies By Director Page"
+					class="img-thumbnail">
+			</div>
+			<br>
+			<p>
+			<ol>To Do:
+				<li>Review the "MovieController" class to make sure the correct logic is implemented to render the
+					SearchMoviesByDirector page.</li>
+				<li>Review the "MovieController" class to make sure the correct logic is implemented to search for
+					movies by director.</li>
+				<li>Review the "MovieService" class to make sure the correct logic is implemented to search for movies
+					by director.</li>
+				<li>Review the "MovieRepository" class to make sure the correct logic is implemented to search for
+					movies by director.</li>
+				<li>Review the "searchMoviesByDirector.html" template to make sure the correct form is implemented to
+					search for movies by director.</li>
+			</ol>
+			</p>
+		</section>
+
+		<section class="instruction-card">
+			<h3>Task 5</h3>
+			<br />
+			<p>
+				Our fifth task is to add a new feature by allowing users to search for movies by genre.
+				You need to add a new page that allows users to search for movies by genre.
+				Once the user enters the genre, the page should display the movie details.
+			</p>
+			<br />
+			<div class="img-container">
+				<h3>Example UI: </h3>
+				<img th:src="@{/library/moviesImages/searchGenre.png}" alt="Search Movies By Genre Page"
+					class="img-thumbnail">
+			</div>
+			<br>
+			<p>
+			<ol>To Do:
+				<li>Review the "MovieController" class to make sure the correct logic is implemented to render the
+					SearchMoviesByGenre page.</li>
+				<li>Review the "MovieController" class to make sure the correct logic is implemented to search for
+					movies by genre.</li>
+				<li>Review the "MovieService" class to make sure the correct logic is implemented to search for movies
+					by genre.</li>
+				<li>Review the "MovieRepository" class to make sure the correct logic is implemented to search for
+					movies by genre.</li>
+				<li>Review the "searchMoviesByGenre.html" template to make sure the correct form is implemented to
+					search for movies by genre.</li>
+			</ol>
+			</p>
+		</section>
+
+
+		<section class="instruction-card">
+			<h3>Task 6</h3>
+			<br />
+			<p>
+				Our sixth task is to add a new feature by allowing users to edit a movie's description.
+				You need to add a new page that allows users to search for movies by ID and edit the movie's
+				description.
+				Once the user enters the ID, the page should display the movie details and allow the user to edit the
+				movie's description.
+				When the user submits the form, the movie's description should be updated and the user redirected to the
+				"All Movies" page.
+			</p>
+			<br />
+			<div class="img-container">
+				<h3>Example UI: </h3>
+				<img th:src="@{/library/moviesImages/UpdateDescription.png}" alt="Edit Movie Description Page"
+					class="img-thumbnail">
+			</div>
+			<br>
+			<p>
+			<ol>To Do:
+				<li>Review the "MovieController" class to make sure the correct logic is implemented to render the
+					UpdateMovieDescription page.</li>
+				<li>Review the "MovieController" class to make sure the correct logic is implemented to update a movie's
+					description.</li>
+				<li>Review the "MovieService" class to make sure the correct logic is implemented to update a movie's
+					description.</li>
+				<li>Review the "MovieRepository" class to make sure the correct logic is implemented to update a movie's
+					description.</li>
+				<li>Review the "updateMovieDescription.html" template to make sure the correct form is implemented to
+					update a movie's description.</li>
+			</ol>
+			</p>
+		</section>
+
+
+
+		<section class="instruction-card">
+			<h3>Task 7</h3>
+			<br />
+			<p>
+				It is unfortunate but sometimes a movie needs to be removed from the catalog for various reasons.
+			</p>
+			<br />
+			<p>
+				With a heavy heart, the seventh task is to delete a movie by removing it from the library catalog
+				permanently.
+				To do this, you need to add a new page that allows users to search for movies by ID and delete the
+				movie.
+				Please note that once a movie is deleted, it cannot be recovered. So, it is important to be sure that
+				the movie should be deleted by validating the user's action.
+				Once the user enters the ID, the movie should be deleted from the library catalog and the user
+				redirected to the "All Movies" page.
+			</p>
+			<br />
+			<div class="img-container">
+				<h3>Example UI: </h3>
+				<img th:src="@{/library/moviesImages/DeleteMovie.png}" alt="Delete Movie Description Page"
+					class="img-thumbnail">
+			</div>
+			<br>
+			<p>
+			<ol> To Do:
+				<li>On the Delete Movie page, the user should enter the ID of the movie they want to delete.</li>
+				<li>After entering the ID, the user should validate their action to confirm the deletion.</li>
+				<li>Once the user confirms the deletion, the movie will be permanently removed from the library catalog.
+				</li>
+				<li>The user will then be redirected to the "All Movies" page.</li>
+			</ol>
+		</section>
+
+	</div>
+
+
+
+
+
+
+</body>
+
+</html>

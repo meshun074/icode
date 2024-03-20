@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Planner</title>
+	<link rel="icon" href="data:image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-calendar-check' viewBox='0 0 16 16'>
+  <path d='M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0'/>
+  <path d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z'/>
+</svg>">
+	<link rel="stylesheet" th:href="@{/styles.css}">
+	<link rel="stylesheet" th:href="@{/planner/styles.css}">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<header th:insert="~{nav :: nav-fragment}"></header>
+	<div class="container">
+		<div class=" bg-light rounded row text-center">
+			<div class="col">
+				<div>
+					<h1 class="heading">Planner Application</h1>
+				</div>
+				<img class="image rounded" th:src="@{/planner/images/pexels-breakingpic-3299.jpg}"></img>
+				<div class="p-2 text-start">
+					Welcome to the Planner application. This application will be used to track and update a list of Todo
+					items.
+					Each Todo item will contain a collection of tasks, will have a topic, and a due date. This
+					application will allow users to create new todo items,
+					view the items they have stored, update their Todo items, delete their items while also adding
+					search and sorting functionalities.
+					This document will provide you with the business requirements of the application and will also
+					provide hints and code if needed.
+
+				</div>
+				<div class="text-center">
+					<a class="mb-3 btn btn-outline-dark" th:href="@{/planner/home}">
+						<h2>Home</h2>
+					</a>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="row g-2">
+			<secion class="p-3 m-5 rounded bg-light">
+				<h1>Application Setup <a th:if="${session.planner1} eq false" th:href="@{/pt/planner1}"><i
+							class="bi bi-chevron-double-down"></i></a>
+					<a th:if="${session.planner1} eq true" th:href="@{/pt/planner1}"><i
+							class="bi bi-chevron-double-up"></i></a>
+				</h1>
+				<section th:if="${session.planner1} eq true">
+					<p> In this section, you are going to ensure you have the necessary models and classes at your
+						disposal to build out the application.
+					</p>
+					<h2>Models</h2>
+					<p>You should create your models inside the model package of your feature's code package.</p>
+					<img class="rounded" th:src="@{/planner/images/setup/planner-uml-models.png}"></img>
+					<p>Having trouble? Here is how you can implement it. <a th:href="@{/pt/planner2}">Click Here</a></p>
+					<section th:if="${session.planner2} eq true">
+						<ul>
+							<li>Inside of src/main/java/com/fdmgroup/icode/planner/model create the following enum and
+								classes.</li>
+							<li>You create a enum by right clicking on the package > new > enum </li>
+							<li>You create a class by right clicking on the package > new > class </li>
+						</ul>
+						<p>Since an instance of Topic and Task are both stored in Todo, we will create them first</p>
+						<img class="code rounded" th:src="@{/planner/images/setup/topic.png}"></img><br />
+						<img class="code rounded" th:src="@{/planner/images/setup/task.png}"></img><br />
+						<p>You can have your IDE generate getters, setters, toString, hash, and equals for you. Right
+							click in the class and select 'Source' and select what you would like the IDE to generate.
+						</p>
+						<img class="code rounded" th:src="@{/planner/images/setup/todo.png}"></img><br />
+					</section>
+					<h2>Classes</h2>
+					<p>You will also need the following classes to be added to your feature's code package.</p>
+					<img class="rounded" th:src="@{/planner/images/setup/planner-uml-classes.png}"></img>
+					<p>Having trouble? Here is how you can implement it. <a th:href="@{/pt/planner3}">Click Here</a></p>
+					<section th:if="${session.planner3} eq true">
+						<ul>
+							<li>Inside of src/main/java/com/fdmgroup/icode/planner create the following classes.</li>
+							<li>Ensure the classes have the appropiate annotations so Spring is able to autowire them
+							</li>
+							<li>Note this is just the starting state for these classes, we will add more methods to them
+								as the application is built out</li>
+						</ul>
+						<p>Since an instance of PlannerRepository is stored in PlannerService we will create it first
+						</p>
+						<img class="code rounded" th:src="@{/planner/images/setup/planner-repo.png}"></img><br />
+						<p>@Repository marks this class as a repository. We instantiate the List as an ArrayList when
+							the bean is created, ensuring we will not be working with a null value.</p>
+						<img class="code rounded" th:src="@{/planner/images/setup/planner-service.png}"></img><br />
+						<p>@Service marks the class as part of the service layer. We autowire the repository through the
+							constructor upon bean creation.</p>
+					</section>
+				</section>
+			</secion>
+		</div>
+		<div class="row g-2">
+			<secion class="p-3 m-3 rounded bg-light">
+				<h1>Create Todo <a th:if="${session.planner4} eq false" th:href="@{/pt/planner4}"><i
+							class="bi bi-chevron-double-down"></i></a>
+					<a th:if="${session.planner4} eq true" th:href="@{/pt/planner4}"><i
+							class="bi bi-chevron-double-up"></i></a>
+				</h1>
+				<section th:if="${session.planner4} eq true">
+					<p> In this section, you will add the ability for your application to create new Todo items and save
+						them to your repository.
+					</p>
+					<h2>Form part 1</h2>
+					<img class="rounded" th:src="@{/planner/images/create/create-form1.png}"></img>
+					<h2>Form part 2</h2>
+					<img class="rounded" th:src="@{/planner/images/create/create-form2.png}"></img>
+					<p>Allow users to create a new Todo Item <a th:href="@{/pt/planner5}">Hints</a></p>
+					<section th:if="${session.planner5} eq true">
+						<p>In order to achieve this task, you will need to complete the following steps</p>
+						<ul>
+							<li>Allow your users the ability to navigate to the create-todo.html page</li>
+							<li>Create a form on the create-todo.html page for users to submit</li>
+							<li>Process the information from the submitted form</li>
+							<ul>
+								<b>Flow of getting to creation form</b>
+								<li>Home page link to Controller</li>
+								<li>Controller to create-todo.html</li>
+								<b>Flow of creating todo item</b>
+								<li>Intake list of tasks (dependencies first)</li>
+								<li>After list of tasks is confirmed, intake remaining information</li>
+								<li>Use an IdGenerator to have the service set the Ids for tasks and todo items</li>
+								<b>Flow of saving todo information</b>
+								<li>Form to Controller</li>
+								<li>Controller to Service</li>
+								<li>Service to Repository which saves the information</li>
+							</ul>
+						</ul>
+						<p>Having trouble? Here is how you can implement it. <a th:href="@{/pt/planner6}">Click Here</a>
+						</p>
+						<section th:if="${session.planner6} eq true">
+							<ol>
+								<b>
+									<li>Allow users to navigate to create-todo.html</li>
+								</b>
+								<ul>
+									<li>Modify line 35 in home.html so the create button is associate to
+										'th:href="@{/planner/create-add-task}"</li>
+									<p> planner is the base request mapping for this application (seen in the
+										@RequestMapping within the Controller) and create-add-task will be the
+										submapping associated with getting to the correct html page, ensuring it is set
+										up so we can add tasks.</p>
+									<p> a tags are only GET mapping</p>
+									<img class="code rounded"
+										th:src="@{/planner/images/create/a-get-create-add-task.png}"></img><br />
+									<li>Ensure the mapping exists withing the PlannerController</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/create/get-map-create-add-task1.png}"></img><br />
+								</ul>
+								<b>
+									<li>Add necessary items to model</li>
+								</b>
+								<p>We will be using form binding in the create form. To complete for form binding, we
+									will be utilizing the Model object which can be imported from
+									org.springframework.ui.Model.
+									We will bind two things to the form:
+								<ul>
+									<li> List of tasks - we will have a current list of tasks tracked in our service
+										class, and will add those tasks to the model</li>
+									<li> Task object - we will also add a new Task object which will be bound to the
+										form and will capture the form information to be added to the current tasks
+										tracked in the service </li>
+								</ul>
+								<ol>
+									<li>Create current tasks in PlannerService and create a method to access information
+									</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/create/service-create-current-tasks.png}"></img><br />
+									<li>Ensure PlannerService is autowired into the PlannerController through the
+										constructor</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/create/autowire-service.png}"></img><br />
+									<li>Add list of tasks from service and a new task to the model</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/create/get-map-create-add-task2.png}"></img><br />
+								</ol>
+								</p>
+								<b>
+									<li>Create from for creating tasks on create-todo.html</li>
+								</b>
+								<ul>
+									<li>Add form tags</li>
+									<li>Add necessary information in opening form tag</li>
+									<ul>
+										<li>th:action - mapping that will be association with the submission of the
+											form. What method in the controller will it be associated with?</li>
+										<li>method - you have two mapping methods available in html, get and post, get
+											places information in url, post sends it in the body. Unless it is a
+											primitive type, you want to place the information in the body with post.
+										</li>
+										<li>th:object - with will bind the object from the model to the form.</li>
+									</ul>
+									<li>Create necessary input fields</li>
+									<ul>
+										<li>Define the type of field you want displayed - what type of information are
+											you expecting to be input?</li>
+										<li>th:field - this will associate the input with the attribute found in the
+											object bound to the form.</li>
+										<li>Create a submit button - with will be an input of type 'submit'. You can add
+											a value to the input which will change the text on the button</li>
+									</ul>
+									<img class="code rounded"
+										th:src="@{/planner/images/create/create-task-form1.png}"></img><br />
+								</ul>
+								<b>
+									<li>Update current tasks and display list</li>
+								</b>
+								<ul>
+									<li>Ensure a post mapping of the defined by the th:action in the form exists in the
+										controller.</li>
+									<li>The method will take the object bound to the form into the method as a
+										parameter.</li>
+									<li>Pass object to the service to store it in the temporary list of current tasks
+									</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/create/post-create-add-task.png}"></img><br />
+									<ul>
+										<li>Create an IdGenerator which will generate ids for tasks and todo items
+											(icode/planner/utility.IdGenerator)</li>
+										<img class="code rounded"
+											th:src="@{/planner/images/create/idgenerator.png}"></img><br />
+									</ul>
+									<li>Use IdGenerator to set id for newly created task</li>
+									<li>Add newly created task to list of currentTasks</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/create/service-add-to-current-tasks.png}"></img><br />
+									<li>Display current tasks above form - you will make use of the th:each expression
+									</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/create/th-each-task.png}"></img><br />
+									<li>Allow users to remove from current tasks</li>
+									<ul>
+										<li>Add a tag for each task and pass the id in as a path variable</li>
+										<img class="code rounded"
+											th:src="@{/planner/images/create/th-each-task2.png}"></img><br />
+										<li>Create the associated mapping and method in the controller - @PathVariable
+											allows us to grab the variable from the path</li>
+										<img class="code rounded"
+											th:src="@{/planner/images/create/controller-remove-task.png}"></img><br />
+										<li>Create a method to remove the task by id from the current tasks in the
+											service</li>
+										<img class="code rounded"
+											th:src="@{/planner/images/create/service-remove-current-task.png}"></img><br />
+									</ul>
+								</ul>
+								<b>
+									<li>Mark current tasks as done and create todo</li>
+								</b>
+								<ul>
+									<li>Add a link users can click to mark current tasks as completed</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/create/task-done.png}"></img><br />
+									<li>Ensure the associated mapping exists in the controller</li>
+									<li>For the create-todo form, you will want to have available</li>
+									<ol>
+										<li>The current tasks added</li>
+										<li>A Todo Object for form binding</li>
+										<li>All Topic values available</li>
+										<img class="code rounded"
+											th:src="@{/planner/images/create/get-create-todo.png}"></img><br />
+									</ol>
+									<li>Notice I added a attribute to the model "tasksComplete" - this is so that I can
+										controll which of the two forms on the create-todo display.</li>
+									<li>We can wrap the create tasks form with a section and only display it if
+										"tasksComplete is null"</li>
+									<li>We can wray the create todo section with a section tags and only display it if
+										the "tasksComplete is not null"</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/create/tasks-complete-null.png}"></img><br />
+									<li>Build the todo form and process information -- try to figure it out before
+										checking answer</li>
+								</ul>
+							</ol>
+							<p>Finished html <a th:href="@{/pt/planner19}"> HERE</a></p>
+							<img th:if="${session.planner19} eq true" class="code rounded"
+								th:src="@{/planner/images/create/create-html-complete.png}"></img><br />
+							<p>Finished Controller methods <a th:href="@{/pt/planner20}"> HERE</a></p>
+							<img th:if="${session.planner20} eq true" class="code rounded"
+								th:src="@{/planner/images/create/create-controller-complete.png}"></img><br />
+							<p>Finished Service methods <a th:href="@{/pt/planner21}"> HERE</a></p>
+							<img th:if="${session.planner21} eq true" class="code rounded"
+								th:src="@{/planner/images/create/create-service-complete.png}"></img><br />
+						</section>
+					</section>
+				</section>
+			</secion>
+		</div>
+
+		<div class="row g-2">
+			<secion class="p-3 m-5 rounded bg-light">
+				<h1>View All Todo Items <a th:if="${session.planner7} eq false" th:href="@{/pt/planner7}"><i
+							class="bi bi-chevron-double-down"></i></a>
+					<a th:if="${session.planner7} eq true" th:href="@{/pt/planner7}"><i
+							class="bi bi-chevron-double-up"></i></a>
+				</h1>
+				<section th:if="${session.planner7} eq true">
+					<p> In this section, you will add the ability for your application to view all the Todo items saved
+						in your repository and their details.
+					</p>
+					<h2>View Todo items </h2>
+					<img class="code rounded" th:src="@{/planner/images/list/list-ui.png}"></img><br />
+					<h2>Todo item details </h2>
+					<img class="code rounded" th:src="@{/planner/images/list/todo-details-ui.png}"></img><br />
+					<p>Allow users to view Todo items <a th:href="@{/pt/planner8}">Hints</a></p>
+					<section th:if="${session.planner8} eq true">
+						<p>In order to achieve this task, you will need to complete the following steps.</p>
+						<ul>
+							<li>Allow your users the ability to navigate to the list-todo.html page.</li>
+							<li>Allow your users to navigate to view details by Todo id.</li>
+							<li>Application flow of information</li>
+							<ul>
+								<b>Viewing all Todo items</b>
+								<li>Home page link to Controller</li>
+								<li>Controller adds necessary information to model</li>
+								<li>Information from model is displayed on list-todo.html</li>
+								<b>Viewing Todo item details </b>
+								<li>Add a link for each item that will pass id in as a path variable to Controller</li>
+								<li>Service uses Repository to locate item by id</li>
+								<li>Controller adds Todo item to model and displays information on todo-details page
+								</li>
+							</ul>
+						</ul>
+						<p>Having trouble? Here is how you can implement it. <a th:href="@{/pt/planner9}">Click Here</a>
+						</p>
+						<section th:if="${session.planner9} eq true">
+							<p>If you did not complete the create todo form, ensure you complete these steps <a
+									th:href="@{/pt/planner22}">Click here</a></p>
+							<section th:if="${session.planner22} eq true">
+								<ol>
+									<li>Ensure PlannerService is autowired into the PlannerController through the
+										constructor</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/create/autowire-service.png}"></img><br />
+									<li>Create an IdGenerator which will generate ids for tasks and todo items
+										(icode/planner/utility.IdGenerator)</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/create/idgenerator.png}"></img><br />
+								</ol>
+							</section>
+							<b>
+								<p>Set up</p>
+							</b>
+							<p>Let's start off by creating a sample dataset of todo items in the repository that we can
+								display on the list-todo.html <a th:href="@{/pt/planner23}">Example</a></p>
+							<img th:if="${session.planner23}" class="code rounded"
+								th:src="@{/planner/images/list/sample-data.png}"></img><br />
+							<b>
+								<p>Viewing List of Todo items</p>
+							</b>
+							<ol>
+								<li>Allow users to navigate from the home page to list-todo</li>
+								<ul>
+									<li>Add link to 'a' tag, th:href will specify the mapping in the controller that has
+										the method we are interested in. The base request mapping for the Controller is
+										'planner'</li>
+									<img class="code rounded" th:src="@{/planner/images/list/view-all.png}"></img><br />
+									<li>Create associate method in Controller with expected mapping. 'a' tags are of
+										type 'Get' mapping. Since the base mapping 'planner' is defined at the top of
+										the controller in the @RequestMapping tag, we do not have to define it again in
+										the submapping 'view-all'</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/list/controller-view-all-1.png}"></img><br />
+								</ul>
+								<li>Providing necessay information</li>
+								<ul>
+									<li>Use the PlannerService to grab the list of Todo items from the Repository </li>
+									<img class="code rounded"
+										th:src="@{/planner/images/list/service-get-all.png}"></img><br />
+									<p>Note, if you completed the create form, your service will look slightly different
+									</p>
+									<li>Use the Model - imported from Spring - to add the list of Todo items. This will
+										make them available for the html page</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/list/controller-view-all-2.png}"></img><br />
+									<li>Use thymleaf to loop through the Todo items to display their Topic and their Due
+										date. You will make use of the th:each expression. </li>
+									<img class="code rounded"
+										th:src="@{/planner/images/list/list-table-html.png}"></img><br />
+								</ul>
+							</ol>
+							<b>
+								<p>Viewing Todo item details</p>
+							</b>
+							<ol>
+								<li>Allow users to navigate from list-todo to item-details</li>
+								<ul>
+									<li>Add appropriate mapping to the 'view' th:href - You will want to send in the
+										item's id as a path variable</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/list/view-todo.png}"></img><br />
+									<li>Create associate method in Controller with expected mapping. You will use the
+										@PathVariable annotation to grab the id from the url path</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/list/controller-view-todo-1.png}"></img><br />
+								</ul>
+								<li>Providing necessary information</li>
+								<ul>
+									<li>Create methods in Service and Repository to allow user to get a Todo item by id
+									</li>
+									<p>Service</p>
+									<img class="code rounded"
+										th:src="@{/planner/images/list/service-view-todo.png}"></img><br />
+									<p>Repository</p>
+									<img class="code rounded"
+										th:src="@{/planner/images/list/repo-view-todo.png}"></img><br />
+									<p>Here we are making use of the Optional class to avoid passing null. BONUS:
+										Refactor the code to throw an exception if the Optional is empty.</p>
+									<li>Set the model with the retrieved item</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/list/controller-view-todo-1.png}"></img><br />
+									<li>Use tymleaf to display the information on the html page</li>
+									<ul>
+										<li>th:each loops through a list (tasks)</li>
+										<li>th:if can be used for conditional logic</li>
+										<li>th:object can be used to bind an object to a section</li>
+									</ul>
+									<img class="code rounded"
+										th:src="@{/planner/images/list/todo-details-html.png}"></img><br />
+								</ul>
+							</ol>
+						</section>
+					</section>
+				</section>
+			</secion>
+		</div>
+
+		<div class="row g-2">
+			<secion class="p-3 m-3 rounded bg-light">
+				<h1>Update Todo <a th:if="${session.planner10} eq false" th:href="@{/pt/planner10}"><i
+							class="bi bi-chevron-double-down"></i></a>
+					<a th:if="${session.planner10} eq true" th:href="@{/pt/planner10}"><i
+							class="bi bi-chevron-double-up"></i></a>
+				</h1>
+				<section th:if="${session.planner10} eq true">
+					<p> In this section, you will add the ability for your application to update Todo items saved in
+						your repository.
+					</p>
+					<h2>Update Task Completion from Details</h2>
+					<img class="code rounded" th:src="@{/planner/images/update/update-tasks-ui.png}"></img>
+					<h2>Update Task form</h2>
+					<img class="code rounded" th:src="@{/planner/images/update/update-todo-ui.png}"></img>
+					<p>Allow users to update Todo Items <a th:href="@{/pt/planner11}">Hints</a></p>
+					<section th:if="${session.planner11} eq true">
+						<p>In order to achieve this task, you will need to complete the following steps.</p>
+						<ul>
+							<li>Allow your users the click on the icons in the todo-details page to update task
+								completion.</li>
+							<li>Allow your users to add and remove tasks and update topic and due date of a Todo item.
+							</li>
+							<li>Allow your users to delete Todo items from the details page.</li>
+							<li>Application flow of information</li>
+							<ul>
+								<b>Updating task completion</b>
+								<li>Todo details link to Controller</li>
+								<li>Controller sends information to Service</li>
+								<li>Service updates repository returns updated object</li>
+								<li>Controller added updated information and returns user to todo-details page</li>
+								<b>Updating Todo item</b>
+								<li>Add a link to todo-details which passes the id of the item we want to update</li>
+								<li>Display todo information in form</li>
+								<li>Submit button allows for the information to be processed</li>
+								<li>Updated information is displayed in the todo-details page</li>
+							</ul>
+						</ul>
+						<p>Having trouble? Here is how you can implement it. <a th:href="@{/pt/planner12}">Click
+								Here</a></p>
+						<section th:if="${session.planner12} eq true">
+							<b>
+								<p>Updating task completion</p>
+							</b>
+							<ol>
+								<li>Todo details link to Controller</li>
+								<ul>
+									<li>Wrap 'a' tag around the span icons</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/update/update-task.png}"></img><br />
+									<li>Ensure correct mapping exists withing Controller</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/update/controller-update-task-1.png}"></img><br />
+								</ul>
+								<li>Controller sends information to Service</li>
+								<li>Service passes information to the Repository which returns the updated object</li>
+								<p>Service</p>
+								<img class="code rounded"
+									th:src="@{/planner/images/update/service-update-task.png}"></img><br />
+								<p>Repository</p>
+								<img class="code rounded"
+									th:src="@{/planner/images/update/repository-update-task.png}"></img><br />
+								<li>Controller added updated information and returns user to todo-details page</li>
+								<img class="code rounded"
+									th:src="@{/planner/images/update/controller-update-task-2.png}"></img><br />
+							</ol>
+							<p>How could you refactor the above task to be more efficient?</p>
+							<b>
+								<p>Updating Todo item</p>
+							</b>
+							<ol>
+								<li>Add a link to todo-details which passes the id of the item we want to update and
+									adds necessary information to model</li>
+								<ul>
+									<li>Create 'a' tag to update todo item</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/update/update-todo.png}"></img><br />
+									<li>Ensure correct mapping exists withing Controller</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/update/controller-update-todo-1.png}"></img><br />
+									<li>Grab Todo item from repository and add to Model</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/update/controller-update-todo-2.png}"></img><br />
+									<li>Add Topic values to model so they are accessible for selection options on form.
+									</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/update/controller-update-todo-3.png}"></img><br />
+									<li>Due to the nested nature of the objects and the limitations of Spring, we will
+										need to track the tasks outside of the Todo object. We will make use of the
+										service to track the tasks.</li>
+									<ul>
+										<li>Create current tasks in Planner Service</li>
+										<img class="code rounded"
+											th:src="@{/planner/images/create/service-create-current-tasks.png}"></img><br />
+										<li>Create method to set current tasks</li>
+										<img class="code rounded"
+											th:src="@{/planner/images/update/service-set-current-tasks.png}"></img><br />
+										<li>Set the tasks on the model</li>
+										<img class="code rounded"
+											th:src="@{/planner/images/update/controller-update-todo-4.png}"></img><br />
+									</ul>
+								</ul>
+								<li>Display todo information in form</li>
+								<ul>
+									<li>Wrap form in th:if conditional to only displays if the item is not null</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/update/update-todo-if.png}"></img><br />
+									<li>In opening form tag
+										<ul>
+											<li>Define th:action - the name of the mapping the submission of the form
+												will be associated with</li>
+											<li>Method - whether the form will be post or get mapping. Given the amount
+												of information, it should be post</li>
+											<li>th:object - bind the submission of the form with current Todo object on
+												the model</li>
+										</ul>
+									</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/update/update-todo-form-open.png}"></img><br />
+									<li>Create and input fields for every Todo field -- id is hidden</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/update/update-todo-form-inside.png}"></img><br />
+								</ul>
+								<li>Allow users to remove and add tasks</li>
+								<ul>
+									<b>
+										<p>Removing Task</p>
+									</b>
+									<li>Above the todo form, display the names of the tasks and provide a link to remove
+										tasks</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/update/update-remove-task.png}"></img><br />
+									<li>Create the associated mapping and method in the controller - @PathVariable
+										allows us to grab the variable from the path. @RequestParam allows us to grab
+										information form inputs by input name</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/update/controller-update-remove-task-1.png}"></img><br />
+									<li>Create a method to remove the task by id from the current tasks in the
+										service</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/create/service-remove-current-task.png}"></img><br />
+									<li>Ensure the controller provides all necessary information back to the model
+										before returning to update page</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/update/controller-update-remove-task-2.png}"></img><br />
+									<b>
+										<p>Adding Task</p>
+									</b>
+									<li>Allow users to view add-task form on update page</li>
+									<ul>
+										<li>Create 'a' tage to send necessary information</li>
+										<img class="code rounded"
+											th:src="@{/planner/images/update/tag-update-add-task.png}"></img><br />
+										<li>Create associated Controller method and return to update</li>
+										<img class="code rounded"
+											th:src="@{/planner/images/update/controller-update-add-task.png}"></img><br />
+										<li>Create a form that takes in Task information and only displays if a task
+											object is available</li>
+										<img class="code rounded"
+											th:src="@{/planner/images/update/update-form-add-task.png}"></img><br />
+										<li>Ensure the Controller can process the newly created task</li>
+										<img class="code rounded"
+											th:src="@{/planner/images/update/controller-update-add-task-2.png}"></img><br />
+										<p>Service</p>
+										<img class="code rounded"
+											th:src="@{/planner/images/create/service-add-to-current-tasks.png}"></img><br />
+									</ul>
+								</ul>
+								<li>Submit button allows for the information to be processed</li>
+								<ul>
+									<li>Create associate method in the Controller</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/update/controller-post-update.png}"></img><br />
+									<li>Pass for additional processing in the Service</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/update/service-post-update.png}"></img><br />
+									<li>Repository saves the update</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/update/repository-post-update.png}"></img><br />
+								</ul>
+								<li>Updated information is displayed in the todo-details page</li>
+								<p>This is achieved through the use of a redirect -- notice above Controller method</p>
+							</ol>
+							<b>
+								<p>Bonus tasks</p>
+							</b>
+							<ul>
+								<li>How can you refactor the controller methods from this process to increase code
+									reuse?</li>
+								<li>Add validation to new tasks -- ensure they are not blank</li>
+							</ul>
+						</section>
+					</section>
+				</section>
+			</secion>
+		</div>
+
+		<div class="row g-2">
+			<secion class="p-3 m-5 rounded bg-light">
+				<h1>Delete and Search<a th:if="${session.planner13} eq false" th:href="@{/pt/planner13}"><i
+							class="bi bi-chevron-double-down"></i></a>
+					<a th:if="${session.planner13} eq true" th:href="@{/pt/planner13}"><i
+							class="bi bi-chevron-double-up"></i></a>
+				</h1>
+				<section th:if="${session.planner13} eq true">
+					<p> In this section, you will add the ability for your application to delete Todo items saved in
+						your repository and display items based on their content.
+					</p>
+					<h2>Delete</h2>
+					<img class="code rounded" th:src="@{/planner/images/search/delete-button-ui.png}"></img>
+					<h2>Delete Confirmation</h2>
+					<img class="code rounded" th:src="@{/planner/images/search/confirmation-ui.png}"></img>
+					<h2>Search</h2>
+					<img class="code rounded" th:src="@{/planner/images/search/search-ui.png}"></img>
+					<p>Allow users to delete and search through Todo Items <a th:href="@{/pt/planner14}">Hints</a></p>
+					<section th:if="${session.planner14} eq true">
+						<p>In order to achieve this task, you will need to complete the following steps.</p>
+						<ul>
+							<li>Allow your users to delete Todo items from the details page.</li>
+							<li>Allow your users to search Todo items displaying items:</li>
+							<ul>
+								<li>View items by topic</li>
+								<li>View items between date range</li>
+								<li>View items ordered by due date</li>
+								<li>View item(s) that contain specific tasks</li>
+							</ul>
+							<li>Application flow of information</li>
+							<ul>
+								<b>Delete Todo item</b>
+								<li>Todo details contains a link that passes todo id to Controller</li>
+								<li>Users are redirected back to details to confirm they want to delete the item</li>
+								<li>If yes, the id is passes back to the Controller</li>
+								<ul>
+									<li>Controller passes id to Service which passes it to the Repository</li>
+									<li>Repository removes Todo item from collection</li>
+									<li>Controller returns user to the home page</li>
+								</ul>
+								<li>If no, the user is returned back to todo-details, no change.</li>
+								<b>Search Todo items</b>
+								<li>Allow users to navigate to the search page from the home page</li>
+								<li>Create a form that allows users to view a list of items based on topic</li>
+								<ul>
+									<li>Form passes topic to Controller</li>
+									<li>Controller passes topic to Service which passes it to the Repository</li>
+									<li>Repository returns all items of the specified topic</li>
+									<li>Controller returns user to the search page displaying list</li>
+									<li>If no items are present, 'No items found' message is displayed</li>
+								</ul>
+								<li>Create a form that allows users to input a date range</li>
+								<ul>
+									<li>Form passes range to Controller</li>
+									<li>Controller passes range to Service which passes it to the Repository</li>
+									<li>Repository returns all items between the specified range</li>
+									<li>Controller returns user to the search page displaying list</li>
+									<li>If no items are present, 'No items found' message is displayed</li>
+								</ul>
+								<li>Create a link that allows users show priority items</li>
+								<ul>
+									<li>Controller calls Service to retrieve information from the Repository</li>
+									<li>Repository returns all items sorted by due date</li>
+									<li>Controller returns user to the search page displaying ordered list</li>
+								</ul>
+								<li>Create a form that allows users to search items by tasks</li>
+								<ul>
+									<li>Form passes task to Controller</li>
+									<li>Controller passes task to Service which passes it to the Repository</li>
+									<li>Repository all items that contain the specified task</li>
+									<ul>
+										<li>E.g., if a task was "cook" any item that contains a task with "cook" inside
+											of it will be included in the list</li>
+										<li>"cook" -> "Cooking pies", "cook meal prep", "Thanksgiving cooking"</li>
+									</ul>
+									<li>Controller returns user to the search page displaying list if a list greater
+										than one is returned</li>
+									<li>Controller returns user to the search page displaying singular item details if a
+										list of size 1 is returned</li>
+									<li>If no items are present, 'No items found' message is displayed</li>
+								</ul>
+							</ul>
+						</ul>
+						<p>Having trouble? Here is how you can implement it. <a th:href="@{/pt/planner15}">Click
+								Here</a></p>
+						<section th:if="${session.planner15} eq true">
+							<b>
+								<p>Delete Todo item</p>
+							</b>
+							<ol>
+								<li>Todo details contains a link that passes todo id to Controller</li>
+								<ul>
+									<li>Create a tag with appropriate link</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/search/a-confirm-delete.png}"></img>
+									<li>Ensure a corresponding method exists within the controller</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/search/get-confirm-delete.png}"></img>
+								</ul>
+								<li>Users are redirected back to details to confirm they want to delete the item</li>
+								<ul>
+									<li>Create a new section under the todo section that does not display unless they
+										are confirming a delete</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/search/confirm-section.png}"></img>
+									<li>Create appropriate links that allow users to delete or cancel</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/search/a-delete-cancel.png}"></img>
+								</ul>
+								<li>Condition if the user wants to delete</li>
+								<ul>
+									<li>Ensure appropriate method exists within the Controller</li>
+									<img class="code rounded" th:src="@{/planner/images/search/get-delete-1.png}"></img>
+									<li>Process Delete</li>
+									<p>Controller</p>
+									<img class="code rounded" th:src="@{/planner/images/search/get-delete-3.png}"></img>
+									<p>Service</p>
+									<img class="code rounded" th:src="@{/planner/images/search/get-delete-2.png}"></img>
+									<p>Repository</p>
+									<img class="code rounded" th:src="@{/planner/images/search/get-delete-4.png}"></img>
+								</ul>
+								<li>Condition if the user does not want to delete</li>
+								<ul>
+									<li>Ensure appropriate method exists within the Controller</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/search/get-cancel-delete.png}"></img>
+								</ul>
+							</ol>
+							<b>
+								<p>Search Todo items</p>
+							</b>
+							<ol>
+								<li>Allow users to navigate to the search page from the home page</li>
+								<ul>
+									<li>Modify link present in the home.html</li>
+									<img class="code rounded" th:src="@{/planner/images/search/a-search.png}"></img>
+									<li>Ensure appropriate method exists in the Controller</li>
+									<img class="code rounded"
+										th:src="@{/planner/images/search/get-to-search.png}"></img>
+								</ul>
+								<li>Modify Controller method to allow model to have access to list of Topics on
+									search.html</li>
+								<img class="code rounded" th:src="@{/planner/images/search/get-to-search-2.png}"></img>
+								<li>Create a form that allows users to view a list of items based on topic</li>
+								<ul>
+									<li>Create and processs form</li>
+									<ul>
+										<li>Add a th:action - what path will the submission of the form be associated?
+										</li>
+										<li>Add a method - will the information be sent via 'get' or 'post'?</li>
+										<li>Use th:each to display the available options</li>
+										<img class="code rounded"
+											th:src="@{/planner/images/search/form-search-topic.png}"></img>
+									</ul>
+									<ul>
+										<li>Ensure method exists in the Controller</li>
+										<img class="code rounded"
+											th:src="@{/planner/images/search/search-topic-1.png}"></img>
+										<li>Find information from Service and Repository</li>
+										<p>Controller</p>
+										<img class="code rounded"
+											th:src="@{/planner/images/search/search-topic-2.png}"></img>
+										<p>Service</p>
+										<img class="code rounded"
+											th:src="@{/planner/images/search/search-topic-3.png}"></img>
+										<p>Repository</p>
+										<img class="code rounded"
+											th:src="@{/planner/images/search/search-topic-4.png}"></img>
+										<li>Make information available to the front-end (add to model)</li>
+										<img class="code rounded"
+											th:src="@{/planner/images/search/search-topic-5.png}"></img>
+									</ul>
+									<li>Display information on the search.html</li>
+									<ul>
+										<p>We are going to make use of prior code we created on other html pages by
+											making use of th:fragment</p>
+										<li>Make the table on list-todo a fragment</li>
+										<img class="code rounded"
+											th:src="@{/planner/images/search/declare-list-fragment.png}"></img>
+										<li>Insert fragment into the search page, only have it display if the todos
+											object is available on the model</li>
+										<img class="code rounded"
+											th:src="@{/planner/images/search/insert-list-frag.png}"></img>
+									</ul>
+								</ul>
+								<li>Create a form that allows users to input a date range</li>
+								<ul>
+									<li>Create and processs form</li>
+									<ul>
+										<li>Add a th:action, method, and inputs</li>
+										<img class="code rounded"
+											th:src="@{/planner/images/search/search-range-1.png}"></img>
+									</ul>
+									<ul>
+										<li>Ensure method exists in the Controller</li>
+										<img class="code rounded"
+											th:src="@{/planner/images/search/search-range-2.png}"></img>
+										<li>Find information from Service and Repository</li>
+										<p>Controller</p>
+										<img class="code rounded"
+											th:src="@{/planner/images/search/search-range-3.png}"></img>
+										<p>Service</p>
+										<img class="code rounded"
+											th:src="@{/planner/images/search/search-range-4.png}"></img>
+										<p>Repository</p>
+										<img class="code rounded"
+											th:src="@{/planner/images/search/search-range-5.png}"></img>
+										<li>Make information available to the front-end (add to model)</li>
+										<img class="code rounded"
+											th:src="@{/planner/images/search/search-range-6.png}"></img>
+									</ul>
+									<li>Display information on the search.html</li>
+									<p>We will make use of the fragment created when we added the ability to search by
+										topic</p>
+								</ul>
+								<li>Create a link that allows users show priority items</li>
+									<ul>
+										<li>Similar to above logic</li>
+										<li>Can make it a 'a' tag</li>
+									</ul>
+								<li>Create a form that allows users to search items by tasks</li>
+									<ul>
+										<li>Similar to logic above</li>
+										<li>Will need to make use of another form</li>
+									</ul>
+							</ol>
+							<b>
+								<p>Bonus tasks</p>
+							</b>
+							<ul>
+								<li>Refactor your code so it displays the 'No Items Found' logic when the returned list is size 0</li>
+								<li>Create another fragment with todo-details and display the details of a Todo Item if there is only one</li>
+							</ul>
+						</section>
+					</section>
+				</section>
+			</secion>
+		</div>
+
+		<div class="row g-2">
+			<secion class="p-3 m-3 rounded bg-light">
+				<h1>Additional tasks <a th:if="${session.planner16} eq false" th:href="@{/pt/planner16}"><i
+							class="bi bi-chevron-double-down"></i></a>
+					<a th:if="${session.planner16} eq true" th:href="@{/pt/planner16}"><i
+							class="bi bi-chevron-double-up"></i></a>
+				</h1>
+				<section th:if="${session.planner16} eq true">
+					<p> In this section, is meant to provide additional tasks if you complete early.
+					</p>
+					<h2>Tasks</h2>
+					<ul>
+						<li>Add Unique CSS to the application</li>
+						<li>Refactor the html pages to make the 'Home' Button a fragment</li>
+						<li>Filter the topics to display as Title-case</li>
+						<li>Filter dates to display Title-case</li>
+						<li>Create tests in src/test/java/com/fdmgroup/icode/planner</li>
+					</ul>
+				</section>
+			</secion>
+		</div>
+	</div>
+</body>
+
+</html>
