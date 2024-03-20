@@ -86,6 +86,34 @@ public class TrailController {
 		return "redirect:/trail";
 	}
 	
+	/*
+	 * Update Step 2
+	 * 		We need to find the trail by id 
+	 * 			Ensure the found trail is available on the model
+	 * 		return the update-trail html
+	 * 	@PathVariable to grab the id from the path
+	 */
+	@GetMapping("/update/{trailId}")
+	public String goToUpdatePage(@PathVariable int trailId, Model model) throws TrailNotFoundException {
+		Trail foundTrail = trailService.findTrailById(trailId);
+		model.addAttribute("trail", foundTrail);
+		model.addAttribute("activities", trailService.findAllTrailActivities());
+		return "demo/trail-update";
+	}
+	
+	/*
+	 * 	Update Step 4
+	 * 		Pass updated information to service for processing
+	 * 		redirect to home
+	 */
+
+	@PostMapping("/update")
+	public String processTrailUpdate(Trail trail) {
+		System.out.println(trail.getId());
+		trailService.updateTrailInformation(trail);
+		return "redirect:/trail";
+	}
+	
 	@ExceptionHandler(TrailNotFoundException.class)
 	public String toHandlePlayerNotFound(RedirectAttributes redirect, TrailNotFoundException pnfe) {
 		redirect.addFlashAttribute("message", pnfe.getMessage());

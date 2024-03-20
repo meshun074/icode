@@ -85,5 +85,23 @@ public class TrailRepository {
 		}
 		trails.remove(indexWeWantToRemove);
 	}
+
+	/*
+	 * Update Step 6
+	 * 	Loop through the list of trails
+	 * 	Find the index of the trail we want to replace
+	 * 		Store the updated information at the index
+	 * 		Break out of the loop
+	 */
+
+	public void updateTrail(Trail trail) {
+		for(int i = 0 ; i < trails.size(); i++) {
+			if(trails.get(i).getId() == trail.getId()) {
+				trails.set(i, trail);
+				break;
+			}
+		}
+		
+	}
 	
 }

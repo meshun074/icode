@@ -48,4 +48,14 @@ public class TrailService {
 		findTrailById(id);
 		trailRepo.deleteTrailById(id);
 	}
+
+	/*
+	 * Update Step 5
+	 * 	The Service passed the trail to the repository 
+	 * 	for the information to be updated
+	 */
+
+	public void updateTrailInformation(Trail trail) {
+		trailRepo.updateTrail(trail);
+	}
 }
