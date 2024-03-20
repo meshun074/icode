@@ -33,8 +33,13 @@
 				<li th:if="${trail.petsAllowed} eq true">Pets are allowed</li>
 				<li th:unless="${trail.petsAllowed} eq true">Pets are NOT allowed</li>
 			</ul>
-			<form th:action="@{|/delete/${trail.id}|}" method="post">
-				<input type="submit" value="Delete" disabled="true">
+			<!--
+				Delete: Step 1
+				Ensure you have the appropriate mapping and fields available
+			-->
+			<form th:action="@{/trail/delete}" method="post">
+				<input type="number" th:value="${trail.id}" name="id" hidden>
+				<input type="submit" value="Delete">
 			</form>
 			<form th:action="@{|/update/${trail.id}|}" method="get">
 				<input type="submit" value="Update" disabled="true">

@@ -57,6 +57,7 @@ public class TrailRepository {
 	public List<Trail> findTrailsByLocation(String location) {
 		List<Trail> foundTrails = new ArrayList<>();
 		// For (DataType currentItem : collection)
+		// For each loop
 		for(Trail currentTrail : trails) {
 			if(currentTrail.getLocation().equalsIgnoreCase(location)) {
 				// Reach here only if returns true
@@ -64,6 +65,25 @@ public class TrailRepository {
 			}
 		}
 		return foundTrails;
+	}
+
+	/*
+	 * Delete Step 4
+	 * 	Loop through the list of trails
+	 *	Find the index of the trail we want to remove
+	 * 		Store it in a variable
+	 * 		Break out of the loop
+	 * 	Remove Trail
+	 */
+	public void deleteTrailById(int id) {
+		int indexWeWantToRemove = 0;
+		for(int i = 0 ; i < trails.size(); i++) {
+			if(trails.get(i).getId() == id) {
+				indexWeWantToRemove = i;
+				break;
+			}
+		}
+		trails.remove(indexWeWantToRemove);
 	}
 	
 }

@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
+/*
+* Base mapping for this controller -- prefaces all other submappings
+*/
 @RequestMapping("/trail")
 public class TrailController {
 
@@ -72,6 +75,16 @@ public class TrailController {
 		return "demo/trail-home";
 	}
 
+	/*
+	 * Delete Step 2
+	 * 		Use service to delete trail
+	 * 		redirect to the base GetMapping (top method)
+	 */
+	@PostMapping("/delete")
+	public String deleteTrailById(@RequestParam int id) throws TrailNotFoundException {
+		trailService.deleteTrailById(id);
+		return "redirect:/trail";
+	}
 	
 	@ExceptionHandler(TrailNotFoundException.class)
 	public String toHandlePlayerNotFound(RedirectAttributes redirect, TrailNotFoundException pnfe) {

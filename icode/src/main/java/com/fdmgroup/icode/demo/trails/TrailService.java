@@ -36,4 +36,16 @@ public class TrailService {
 	public List<Trail> findTrailsByLocation(String location) {
 		return trailRepo.findTrailsByLocation(location);
 	}
+
+	/*
+	 * Delete Step 3
+	 * 	The Service will first ensure the trail exists, 
+	 * 		If trail exists, it will be deleted
+	 * 		If it does not an exception will be thrown
+	 */
+
+	public void deleteTrailById(int id) throws TrailNotFoundException {
+		findTrailById(id);
+		trailRepo.deleteTrailById(id);
+	}
 }
