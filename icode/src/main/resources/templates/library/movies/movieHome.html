@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-journal-code' viewBox='0 0 16 16'>
+        <path fill-rule='evenodd' d='M8.646 5.646a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L10.293 8 8.646 6.354a.5.5 0 0 1 0-.708m-1.292 0a.5.5 0 0 0-.708 0l-2 2a.5.5 0 0 0 0 .708l2 2a.5.5 0 0 0 .708-.708L5.707 8l1.647-1.646a.5.5 0 0 0 0-.708'/>
+        <path d='M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2'/>
+        <path d='M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z'/>
+      </svg>">
+          <link rel="stylesheet" th:href="@{/styles.css}">
+          <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+              integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+              crossorigin="anonymous"></script>
+          <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+              integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+              crossorigin="anonymous"></script>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+              integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+              crossorigin="anonymous"></script>
+	<link rel="stylesheet" th:href="@{/library/libraryCSSFiles/moviesFeature.css}">
+    
+    <title>Movies Feature</title>
+</head>
+<body>
+    <header th:insert="~{nav :: nav-fragment}"></header>
+    <div class="main-container">
+        <h1 class="card-title">Library Movies Feature</h1>
+
+        <div class="mt-5 bg-light">
+            <a class="ex-button" th:href="@{/library}">Library Home</a>
+            <a class="ex-button"th:href="@{/library/instructions/movies}">Instructions</a>
+            <a class="ex-button" th:href="@{/library/movies/allMovies}">All Movies</a>
+            <a class="ex-button" th:href="@{/library/movies/createMovieForm}">Add A Movie</a>
+            <a class="ex-button" th:href="@{/library/movies/searchMoviesByTitleForm}">Search Movie By Title</a>
+            <a class="ex-button" th:href="@{/library/movies/searchMoviesByDirectorForm}">Search Movie By Director</a>
+            <a class="ex-button" th:href="@{/library/movies/searchMoviesByGenreForm}">Search Movie By Genre</a>
+            <a class="ex-button" th:href="@{/library/movies/deleteMovieByIdForm}">Delete A Movie</a>
+            <a class="ex-button" th:href="@{/library/movies/updateMovieDescriptionForm}">Edit a Movie Description</a>
+        </div>
+
+        <div class="instruction-card">
+            <h1 class="card-title">Movie Object</h1>
+            <br>
+            <p>This Java class "Movie" represents a movie entity with properties like movieId, title, director, 
+                and genre. It is annotated as a Spring component with a prototype scope. 
+                The class includes constructors for creating instances with unique IDs, getters and setters for the properties, and a method to generate unique IDs incrementally. 
+                The toString method is overridden to provide a string representation of the Movie object. 
+                The static variable nextId is used to ensure each Movie instance has a distinct ID.</p>
+        </div>
+        <br>
+        <div class="instruction-card">
+            <h1 class="card-title">MovieRepository</h1>
+            <br>
+            <p>The Java class "MovieRepository" serves as a repository for managing movies in a library catalog. 
+                It is annotated as a Spring repository and contains methods for various movie operations. 
+                The constructor initializes the repository with a list of movies. Methods like `findAll`, `save`, 
+                `findByTitle`, `findByDirector`, `findByGenre`, `deleteMovieById`, `updateDescription`, `findById`, and `searchByMovieId` 
+                handle functionalities such as retrieving all movies, saving a new movie with a generated ID, searching movies by title, director, or genre,
+                 deleting a movie by ID, updating a movie's description, and finding a movie by its ID. These methods utilize iteration or streams 
+                 to perform the respective operations and return the desired movie objects or null if not found.</p>
+        </div>
+        <br>
+        <div class="instruction-card">
+            <h1 class="card-title">MovieService</h1>
+            <br>
+            <p>The Java class "MovieService" serves as a service for managing movies in a library catalog. 
+                It is annotated as a Spring service and contains methods for various movie operations. 
+                The constructor initializes the service with a repository of movies. Methods like `findAllMovies`, `saveMovie`, 
+                `findMovieByTitle`, `findMovieByDirector`, `findMovieByGenre`, `deleteMovieById`, `updateMovieDescription`, `findMovieById`, and `searchByMovieId` 
+                handle functionalities such as retrieving all movies, saving a new movie with a generated ID, searching movies by title, director, or genre,
+                 deleting a movie by ID, updating a movie's description, and finding a movie by its ID. These methods utilize the repository
+                  to perform the respective operations and return the desired movie objects or null if not found.</p>
+        </div>
+        <br>
+        <div class="mb-5 instruction-card">
+            <h1 class="card-title">MovieController</h1>
+            <br>
+            <p>The Java class "MovieController" serves as a controller for managing movies in a library catalog. 
+                It is annotated as a Spring controller and contains methods for various movie operations. 
+                The constructor initializes the controller with a service for movies. Methods like `getAllMovies`, `createMovie`, 
+                `searchByTitle`, `searchByDirector`, `searchByGenre`, `deleteMovieById`, `updateMovieDescription`, `searchByMovieId`, and `searchMovieDetailsById` 
+                handle functionalities such as retrieving all movies, saving a new movie with a generated ID, searching movies by title, director, or genre,
+                 deleting a movie by ID, updating a movie's description, and finding a movie by its ID. These methods utilize the service
+                  to perform the respective operations and return the desired movie objects or null if not found.</p>
+        </div>
+
+    </div>
+
+
+
+	
+    
+</body>
+</html>

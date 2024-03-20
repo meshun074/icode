@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" href="data:image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-journal-code' viewBox='0 0 16 16'>
+        <path fill-rule='evenodd' d='M8.646 5.646a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L10.293 8 8.646 6.354a.5.5 0 0 1 0-.708m-1.292 0a.5.5 0 0 0-.708 0l-2 2a.5.5 0 0 0 0 .708l2 2a.5.5 0 0 0 .708-.708L5.707 8l1.647-1.646a.5.5 0 0 0 0-.708'/>
+        <path d='M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2'/>
+        <path d='M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z'/>
+      </svg>">
+	<link rel="stylesheet" th:href="@{/styles.css}">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" th:href="@{/library/libraryCSSFiles/bookFeature.css}">
+
+	<title>Library Books</title>
+</head>
+
+<body>
+	<header th:insert="~{nav :: nav-fragment}"></header>
+	<div>
+		<h1 class="card-title">Library Book Feature Instructions</h1>
+		<br>
+		<div class="text-center bg-light">
+			<a class="ex-button" th:href="@{/library}">Library Home</a>
+			<a class="ex-button" th:href="@{/library/booksFeature/booksHome}">Book Feature Home</a>
+			<a class="ex-button" th:href="@{/library/solutions/bookSolutions}"> Hints </a>
+		</div>
+	</div>
+
+	<div class="main-container">
+
+		<section class="instruction-card">
+			<h3>Overview</h3>
+			<br />
+			<section>
+				<p>
+					Welcome to the Library Book Feature! This feature allows you to manage the books in our library.
+					Usually, you can view all books, add a new book, search for books by ID, title, or author, edit a
+					book's description, and delete a book.
+					But fortunately you are here now to help us fix some bugs and add some new features.
+					<br />
+				</p>
+			</section>
+		</section>
+
+		<section class="instruction-card">
+			<h3>Task 1 Instructions: </h3>
+			<br />
+			<section>
+				<p>
+					The first task is to fix the bug in the "All Books" page. The bug is that the "All Books" page is
+					not displaying the books.
+					You need to fix the bug so that the "All Books" page displays the books.To fix the bug, you need to
+					go to the "All Books" page and check the code to see what is causing the bug.
+					Once you find the bug, you need to fix it and test the "All Books" page to make sure it is
+					displaying the books.
+					Once you have fixed the bug, you can move on to the next task....Good Luck!
+					<br>
+				</p>
+
+				<h3>Task 1 Picture:</h3>
+				<br>
+				<div class="img-container">
+					<h5>Here is a picture of the "All Books" page when it is working correctly:</h5>
+					<br />
+					<img th:src="@{/library/bookImages/allBooks.png}" alt="All Books Page" class="img-thumbnail">
+					<br>
+				</div>
+
+			</section>
+		</section>
+
+
+
+		<div class="instruction-card">
+			<h3>Task 2 Instructions</h3>
+			<br />
+			<section>
+				<p>
+					Since knowledge is power...the more books we can bring into the community the stronger we will grow.
+					Our second Task
+					is to add a new feature by adding a new book to the library catalog.
+					<br />
+					To fix the bug, go to the BookController to check that the appropriate code is there to render the
+					AddBook page. Once the correct
+					code is in place, you will need to edit the AddBook.html page to making sure the form adds a new
+					book to the Library catalog and redirects
+					users to the allBooks page.
+
+				</p>
+			</section>
+			<br />
+			<section>
+				<h3>Task 2 Pictures:</h3>
+				<br>
+				<div class="img-container">
+					<h3>Here is a picture of the "Add Book" page when it is working correctly:</h3>
+					<br>
+					<img th:src="@{/library/bookImages/CreateBook.png}" alt="Add Book Page" class="img-thumbnail">
+					<br>
+				</div>
+			</section>
+
+		</div>
+
+
+		<section class="instruction-card">
+			<h3>Task 3</h3>
+			<br />
+			<section>
+				<p>
+					Our third task is to add a new feature by allowing users to search for books by ID.
+					You need to add a new page that allows users to search for books by ID.
+					Once the user enters the ID, the page should display the book details.
+					<br />
+				</p>
+			</section>
+			<br>
+			<h3>Task 3 Pictures:</h3>
+			<br />
+			<div class="img-container">
+				<h3>Sample Search By ID Page: </h3>
+				<br />
+				<img th:src="@{/library/bookImages/SearchById.png}" alt="SearchByID" class="img-thumbnail">
+				<br />
+
+				<h3>Sample Search By ID URL: </h3>
+				<br />
+				<img th:src="@{/library/bookImages/SearchByIdURL.png}" alt="SearchByID URL" class="img-thumbnail">
+				<br />
+
+				<h3>Sample Search By ID Results: </h3>
+				<br />
+				<img th:src="@{/library/bookImages/SearchByIdResults.png}" alt="SearchByID Results"
+					class="img-thumbnail">
+				<br>
+
+			</div>
+		</section>
+
+
+		<section class="instruction-card">
+			<h3>Task 4</h3>
+			<br />
+			<section>
+				<p>
+					Our fourth task is to add a new feature by allowing users to search for books by title.
+					You need to add a new page that allows users to search for books by title.
+					Once the user enters the title, the page should display the book details.
+					<br />
+
+				</p>
+
+			</section>
+			<br>
+			<h4>Task 4 Pictures:</h4>
+			<div class="img-container">
+				<h3>Sample Search By Title Page: </h3>
+				<br />
+				<img th:src="@{/library/bookImages/SearchByTitle.png}" alt="SearchByTitle" class="img-thumbnail">
+				<br />
+				<br />
+				<h3>Sample Search By Title URL: </h3>
+				<br />
+				<img th:src="@{/library/bookImages/SearchByTitleURL.png}" alt="SearchByTitle URL" class="img-thumbnail">
+				<br />
+				<br />
+				<h3>Sample Search By Title Results: </h3>
+				<br />
+				<img th:src="@{/library/bookImages/SearchByTitleResults.png}" alt="SearchByTitle Results"
+					class="img-thumbnail">
+				<br />
+			</div>
+		</section>
+
+		<section class="instruction-card">
+			<h3>Task 5</h3>
+			<br />
+			<section>
+				<p>Our fifth task is to add a new feature by allowing users to search for books by author.
+					You need to add a new page that allows users to search for books by author.
+					Once the user enters the author, the page should display the book details.
+					<br />
+					Here is some pictures of the "SearchByAuthor.html" page when it is working correctly:
+					<br />
+				</p>
+			</section>
+			<br />
+			<section>
+				<div class="img-container">
+					<h3>Sample Search By Author Page: </h3>
+					<br />
+					<img th:src="@{/library/bookImages/searchByAuthor.png}" alt="SearchByAuthor" class="img-thumbnail">
+					<br />
+					<br />
+					<h3>Sample Search By Author Results: </h3>
+					<br />
+					<img th:src="@{/library/bookImages/searchByAuthorResults.png}" alt="SearchByAuthor Results"
+						class="img-thumbnail">
+					<br />
+				</div>
+			</section>
+		</section>
+
+		<section class="instruction-card">
+			<h3>Task 6</h3>
+			<br />
+			<section>
+				<p>
+					Our sixth task is to add a new feature by allowing users to edit a book's description.
+					You need to add a new page that allows users to search for books by ID and edit the book's
+					description.
+					Once the user enters the ID, the page should display the book details and allow the user to edit the
+					book's description.
+					When the user submits the form, the book's description should be updated and the user redirected to
+					the "All Books" page.
+					<br />
+					Here is some pictures of the "EditBookDescriptionById.html" page when it is working correctly:
+					<br />
+				</p>
+			</section>
+			<div class="img-container">
+				<h3>Sample Edit Book Description Search: </h3>
+				<br>
+				<img th:src="@{/library/bookImages/EditDesc1.png}" alt="EditBookDescriptionById" class="img-thumbnail">
+				<br />
+				<br />
+				<h3>Sample Edit Book Description Form Example: </h3>
+				<br>
+				<img th:src="@{/library/bookImages/EditDesc.png}" alt="EditBookDescriptionById URL"
+					class="img-thumbnail">
+			</div>
+		</section>
+
+		<section class="instruction-card">
+			<h3>Task 7</h3>
+			<br />
+			<section>
+				<p>
+					It is unfortunate but sometimes a book needs to be retired from the catalog for an array of reasons.
+				</p>
+				<br />
+				With a heavy heart, the seventh task is to delete a book by removing it from the library catalog
+				permanently.
+				To do this, you need to add a new page that allows users to search for books by ID and delete the book.
+				Please note that once a book is deleted, it cannot be recovered. So, it is important to be sure that the
+				book should be deleted by validating the user's action.
+				Once the user enters the ID, the book should be deleted from the library catalog and the user redirected
+				to the "All Books" page.
+				<br />
+				</p>
+			</section>
+
+			<section>
+				<h3>Task 7 Pictures:</h3>
+				<br />
+				<div class="img-container">
+					<h5>Sample Delete Book Search: </h5>
+					<br />
+					<img th:src="@{/library/bookImages/DeleteBook.png}" alt="DeleteBookById" class="img-thumbnail">
+					<br />
+				</div>
+				<br />
+			</section>
+		</section>
+
+
+
+
+
+	</div>
+
+
+
+
+</body>
+
+</html>

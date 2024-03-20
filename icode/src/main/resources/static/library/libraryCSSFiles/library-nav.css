@@ -1,0 +1,81 @@
+
+
+#title-h1 {
+	text-align: center;
+	color: white;
+}
+
+.top-nav ul {
+	text-align: center;
+}
+
+.top-nav li {
+	padding: 18px;
+	position: relative;
+	background-color: #333;
+  	color: #fff;
+  	border-radius: 5px;
+  	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  	display: inline-block;
+  	margin: 10px;
+}
+
+.top-nav li a{
+	color: #fff;
+}
+
+
+.dropdown{
+	position: relative;
+	display: in-line;
+}
+
+.dropdown-content {
+	display: none;
+    position: absolute;
+    background-color: #333;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+
+}
+
+.dropdown:hover .dropdown-content{
+	display: block;
+}
+
+.instruction-card {
+	width: 75%;
+	margin: 0 auto;
+	margin-top: 3rem;
+	margin-left: 10rem;
+	display: inline-block;
+	padding: 20px 20px;
+	background-color: #333;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 5px;
+	transition: background-color 0.3s ease;
+}
+
+
+.img-thumbnail {
+    max-width: 100%; /* Ensure the image does not exceed the container width */
+    height: auto; /* Maintain the aspect ratio of the image */
+}
+
+@media screen and (max-width: 768px) {
+    .img-thumbnail {
+        max-width: 100%; /* Adjust the image size for smaller screens */
+        height: auto;
+    }
+}
+
+
+
+
+
+
+
+
+
+
