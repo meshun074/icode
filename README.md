@@ -140,4 +140,7 @@ Done! You are set to go!
 <br /> [Becca Jonas](https://github.com/beccajonas/introduction)
 <br /> [Martin Brejniak](https://github.com/Martin-Brejniak/introduction)
 <br /> [Saachi Dinesh Kotadia]( https://github.com/Saachi-Kotadia/Introduction.git)
-<br /> [Delara amiri](https://github.com/delmayara/introduction)
+<br /> [Joseph Szpigiel](https://github.com/JosephSzpigiel/introduction)
+> <br /> [Maria Davis](https://github.com/Davassy/Introduction1.git)
+> <br /> [Fritz Guerilus](https://github.com/mrfritzg/introduction)
+> <br /> [Delara Amiri](https://github.com/delmayara/introduction)
