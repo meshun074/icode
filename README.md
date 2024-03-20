@@ -130,6 +130,9 @@ Done! You are set to go!
 <br /> [Julie Cheng](https://github.com/jucheng925/introduction) 
 <br /> [Chao Meng](https://github.com/Chao-Meng/introduction)
 <br /> [Diya Patel](https://github.com/42diyapatel/introduction)
+<br /> [Deepthi Sudhakaran](https://github.com/deepthi-sud/Introduction)
+<br /> [Christian Tchoutang](https://github.com/ChristDave/introduction)
+<br /> [Yuanyuan Chen](https://github.com/Zeitgeist531/introduction) <br />
 <br/> [Johnny Wu](https://github.com/MemeEngineer/Introduction)
 <br /> [Zavier Paulino](https://github.com/Zp1021/Introduction)
  <br /> [Kai-Yin Huang](https://github.com/katehuangishere/introduction)
