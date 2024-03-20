@@ -127,4 +127,7 @@ Done! You are set to go!
 [Audrey Puckett](https://github.com/audreypuckett/introduction)
 
 > [Michael Eshun](https://github.com/meshun074/Introduction.git) [Julie Cheng](https://github.com/jucheng925/introduction) <br /> [Chao Meng](https://github.com/Chao-Meng/introduction)
-<br /> [Diya Patel](https://github.com/42diyapatel/introduction) <br /> [Zavier Paulino](https://github.com/Zp1021/Introduction)
+<br /> [Diya Patel](https://github.com/42diyapatel/introduction)
+<br/> [Johnny Wu](https://github.com/MemeEngineer/Introduction)
+<br /> [Zavier Paulino](https://github.com/Zp1021/Introduction)
+
