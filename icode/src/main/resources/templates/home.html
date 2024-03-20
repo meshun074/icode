@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Home</title>
+	<link rel="stylesheet" th:href="@{/styles.css}">
+	 <link
+   rel="icon"
+   href="data:image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-house-door-fill' viewBox='0 0 16 16'>
+  <path d='M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5'/>
+	</svg>">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+</head>
+
+<body>
+	<div class="mt-5 pt-4 text-center">
+		<div class="bg-light demo" style="font-size:3em">
+			<a th:href="@{/demo}"><i class="bi-journal-code"></i> Demo</a>
+		</div>
+
+	</div>
+
+	<div class="pt-2 container text-center">
+		<div class="row g-2">
+			<div class="col-6">
+				<a th:href="@{/converter}">
+					<div class="shadow rounded p-3 border bg-light"><i class="bi-calculator"></i> Metrics Converter</div>
+				</a>
+			</div>
+			<div class="col-6">
+				<a th:href="@{/string-changer}">
+					<div class="shadow rounded p-3 border bg-light"><i class="bi-journal-text"></i> String Changer</div>
+				</a>
+			</div>
+			<div class="col-6">
+				<a th:href="@{/library}">
+					<div class="shadow rounded p-3 border bg-light"><i class="bi bi-book"></i> Library</div>
+				</a>
+			</div>
+			<div class="col-6">
+				<a th:href="@{/e-shopping}">
+					<div class="shadow rounded p-3 border bg-light"><i class="bi bi-cart3"></i>
+						E-shopping</div>
+				</a>
+			</div>
+			<div class="col-6">
+				<a th:href="@{/image-filter}">
+					<div class="shadow rounded p-3 border bg-light"><i class="bi bi-camera"></i>
+						Image Filter</div>
+				</a>
+			</div>
+			<div class="col-6">
+				<a th:href="@{/sorting}">
+					<div class="shadow rounded p-3 border bg-light"><i class="bi bi-award"></i>
+						Sorting Shenanigans</div>
+				</a>
+			</div>
+			<div class="col-6">
+				<a th:href="@{/cipher}">
+					<div class="shadow rounded p-3 border bg-light"><i class="bi-pencil-square"></i>
+						Cipher</div>
+				</a>
+			</div>
+			<div class="col-6">
+				<a th:href="@{/recipes}">
+					<div class="shadow rounded p-3 border bg-light"><i class="bi-egg-fried"></i>
+						Recipes</div>
+				</a>
+			</div>
+			<div class="col-6">
+				<a th:href="@{/planner}">
+					<div class="shadow rounded p-3 border bg-light"><i class="bi-calendar-check"></i>
+						Planner</div>
+				</a>
+			</div>
+			<div class="col-6">
+				<a th:href="@{/physical}">
+					<div class="shadow rounded p-3 border bg-light"><i class="bi bi-person"></i>
+						Physical Therapy</div>
+				</a>
+			</div>
+			
+		</div>
+	</div>
+</body>

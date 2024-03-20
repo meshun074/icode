@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Sorting Shenanigans</title>
+	<link rel="icon" href="data:image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-award' viewBox='0 0 16 16'>
+  <path d='M9.669.864 8 0 6.331.864l-1.858.282-.842 1.68-1.337 1.32L2.6 6l-.306 1.854 1.337 1.32.842 1.68 1.858.282L8 12l1.669-.864 1.858-.282.842-1.68 1.337-1.32L13.4 6l.306-1.854-1.337-1.32-.842-1.68zm1.196 1.193.684 1.365 1.086 1.072L12.387 6l.248 1.506-1.086 1.072-.684 1.365-1.51.229L8 10.874l-1.355-.702-1.51-.229-.684-1.365-1.086-1.072L3.614 6l-.25-1.506 1.087-1.072.684-1.365 1.51-.229L8 1.126l1.356.702z'/>
+  <path d='M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1z'/>
+</svg>">
+	<link rel="stylesheet" th:href="@{/styles.css}">
+	<link rel="stylesheet" th:href="@{/sorting/styles.css}">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<header th:insert="~{nav :: nav-fragment}"></header>
+
+	<div class="container">
+		<div class="mt-5 mb-4  bg-light rounded row text-center">
+
+			<div class="col">
+				<div>
+					<h1 class="heading">Sorting Algorithms</h1>
+				</div>
+				<div th:each="algorithm : ${algorithms}">
+					<h2><span th:text="${algorithm.name}"></span>: <span th:unless="${algorithm.isCompleted} eq false"
+							th:text="${algorithm.time}"></span><span th:if="${algorithm.isCompleted} eq false">Not
+							Completed</span></h2>
+				</div>
+				<a class="text-center" th:href="@{/sorting/group2}">
+					<p>Refresh</p>
+				</a>
+			</div>
+		</div>
+		<div class="row g-2">
+			<secion class="p-3 rounded bg-light">
+				<h1>Selection Sort <a th:if="${session.sorting9} eq false" th:href="@{/st/sorting9}"><i
+							class="bi bi-chevron-double-down"></i></a>
+					<a th:if="${session.sorting9} eq true" th:href="@{/st/sorting9}"><i
+							class="bi bi-chevron-double-up"></i></a>
+				</h1>
+				<section th:if="${session.sorting9} eq true">
+					<img class="rounded" th:src="@{/sorting/images/selection/selection1.png}"></img><br />
+					<img class="rounded" th:src="@{/sorting/images/selection/selection2.png}"></img><br />
+					<img class="rounded" th:src="@{/sorting/images/selection/selection3.png}"></img>
+					<p>This algorithm continuously selects the smallest elements from the unsorted portion of the array
+						and places it at the end of the sorted portion.</p>
+					<p>For instance, above we start with an unsorted array. We place one pointer at the beginning of the
+						array and have a second loop through the array, checking for the smallest element in the array.
+						After completing the loop, 1 is identified as the smallest element. The smallest element is
+						placed in its sorted position.</p>
+					<p>After the first elements is verified to be the smallest, the first pointer is moved and the
+						processes is repeated until the array is sorted.</p>
+					<p>If you do not know where to start, check out these <a th:href="@{/st/sorting10}">hints</a>
+					</p>
+					<section th:if="${session.sorting10} eq true">
+						<p>You will need to make use of "for" loops with this algorithm</p>
+						<ul>
+							<li><img class="rounded" th:src="@{/sorting/images/for-loop.png}"></img></li>
+							<li>i - is the starting index. Arrays are 0 indexed, so we will start at zero</li>
+							<li>condition - the loop will continue as long as this condition is true</li>
+							<ul>
+								<li> Since arrays are zero indexed, the max index within the array of length 6 is 5
+									(length -1). If you forget to subtract, you will get an exception thrown</li>
+							</ul>
+							<li>i++ - this increments the pointer by one, moving it down the array</li>
+						</ul>
+						<p>
+							<img class="rounded" th:src="@{/sorting/images/selection/selection2.png}"></img> <br />
+							At this point we indentified that the minValue is 1 with is stored at array[j]. So we swap
+							the values of array[i] and array[j].<br />
+							<img class="rounded" th:src="@{/sorting/images/selection/selection3.png}"></img>
+						</p>
+						<p>
+							After j reaches the end of the length of the array, we shift i to 1 (position 2)<br />
+							<img class="rounded" th:src="@{/sorting/images/selection/selection4.png}"></img>
+						</p>
+						<p>
+							After j reaches the end of the length of the array, we determine 2 is the smallest element,
+							no swaps are necessary.
+							<br /><img class="rounded" th:src="@{/sorting/images/selection/selection5.png}"></img>
+						</p>
+
+						<p>
+							Then the same logic is applied until the entire array is sorted (i reaches the end of the
+							array)<br />
+							<img class="rounded" th:src="@{/sorting/images/selection/selection6.png}"></img><br />
+							<img class="rounded" th:src="@{/sorting/images/selection/selection7.png}"></img><br />
+							<img class="rounded" th:src="@{/sorting/images/selection/selection8.png}"></img><br />
+							<img class="rounded" th:src="@{/sorting/images/selection/selection9.png}"></img><br />
+							<img class="rounded" th:src="@{/sorting/images/selection/selection10.png}"></img><br />
+							<img class="rounded" th:src="@{/sorting/images/selection/selection11.png}"></img><br />
+							<img class="rounded" th:src="@{/sorting/images/selection/selection12.png}"></img><br />
+							<img class="rounded" th:src="@{/sorting/images/selection/selection13.png}"></img><br />
+							<img class="rounded" th:src="@{/sorting/images/selection/selection14.png}"></img>
+						</p>
+					</section>
+				</section>
+				<section class="text-center">
+					<form class="pt-3" th:action="@{/sorting/group2/selection}" method="get">
+						<button class="btn btn-outline-secondary" type="submit">Run</button>
+					</form>
+				</section>
+			</secion>
+		</div>
+
+		<div class="row g-2">
+			<secion class="p-3 m-5 rounded bg-light">
+				<h1>Insertion Sort <a th:if="${session.sorting11} eq false" th:href="@{/st/sorting11}"><i
+							class="bi bi-chevron-double-down"></i></a>
+					<a th:if="${session.sorting11} eq true" th:href="@{/st/sorting11}"><i
+							class="bi bi-chevron-double-up"></i></a>
+				</h1>
+				<section th:if="${session.sorting11} eq true">
+					<img class="rounded" th:src="@{/sorting/images/insertion/insertion1.png}"></img><br />
+					<img class="rounded" th:src="@{/sorting/images/insertion/insertion2.png}"></img><br />
+					<img class="rounded" th:src="@{/sorting/images/insertion/insertion3.png}"></img>
+					<p>This algorithm loops through elements in an array and compares adjacent elements, moving the
+						current (key) element to the front (beginning of the array) so long as it is smaller.</p>
+					<p>This sorting method iterates over an array and compares the current element (key) to its
+						predecessor, if the key element is smaller than its predecessor, the elements before, then
+						move the greater elements one position up to make space for the swapped element.</p>
+					<p>In the above example, 11 is the key element and is smaller than 12 so the two elements are
+						swapped.</p>
+					<p>The process of comparing the key to the remainder of the elements continues until all elements
+						are sorted (reach the end of the array).</p>
+					<p>If you do not know where to start, check out these <a th:href="@{/st/sorting12}">hints</a>
+					</p>
+					<section th:if="${session.sorting12} eq true">
+						<img class="rounded" th:src="@{/sorting/images/insertion/insertion1.png}"></img><br />
+						<p>First we start with an unsorted array.</p>
+						<img class="rounded" th:src="@{/sorting/images/insertion/insertion2.png}"></img><br />
+						<p>We make our key the first element (that is the element at position 1)</p>
+						<img class="rounded" th:src="@{/sorting/images/insertion/insertion3.png}"></img><br />
+						<p>Since the element at j (key - 1 )is less than the key, the two are switched. The key is
+							sorted, and we increment our key by one, since 13 is larger than 12, it is sorted.</p>
+						<img class="rounded" th:src="@{/sorting/images/insertion/insertion4.png}"></img><br />
+						<img class="rounded" th:src="@{/sorting/images/insertion/insertion5.png}"></img><br />
+						<p>Increment our key again and now 5 is not greater than 13.</p>
+						<p>5 continues to be swapped with j (which is decremented) so long as j is greater than or equal
+							to 0 and the element in its potition is greater than the key (5)</p>
+						<img class="rounded" th:src="@{/sorting/images/insertion/insertion6.png}"></img><br />
+						<img class="rounded" th:src="@{/sorting/images/insertion/insertion7.png}"></img><br />
+						<p>The process is repeated for 6</p>
+						<img class="rounded" th:src="@{/sorting/images/insertion/insertion8.png}"></img><br />
+						<img class="rounded" th:src="@{/sorting/images/insertion/insertion9.png}"></img><br />
+						<img class="rounded" th:src="@{/sorting/images/insertion/insertion10.png}"></img><br />
+						<img class="rounded" th:src="@{/sorting/images/insertion/insertion11.png}"></img><br />
+						<p>since 6 was the final key and is now sorted, we know now the array is sorted</p>
+					</section>
+				</section>
+				<section class="text-center">
+					<form class="pt-3" th:action="@{/sorting/insertion}" method="get">
+						<button class="btn btn-outline-secondary" type="submit">Run</button>
+					</form>
+				</section>
+			</secion>
+		</div>
+		<div class="row g-2">
+			<secion class="p-3 rounded bg-light">
+				<h1>Merge Sort <a th:if="${session.sorting13} eq false" th:href="@{/st/sorting13}"><i
+							class="bi bi-chevron-double-down"></i></a>
+					<a th:if="${session.sorting13} eq true" th:href="@{/st/sorting13}"><i
+							class="bi bi-chevron-double-up"></i></a>
+				</h1>
+				<section th:if="${session.sorting13} eq true">
+					<div class="text-center">
+						<img class="rounded" th:src="@{/sorting/images/merge/merge1.png}"></img><br />
+					</div>
+					<p>This algorithm works by dividing an array into smaller subarrays, sorting each subarray, and then merging the
+						sorted subarrays back together to form the final sorted array.
+
+						In other words, merge sort works by dividing the array into two
+						halves, sorting each half, and then merging the sorted halves back together. This process is repeated
+						until the entire array is sorted.</p>
+					<p>For instance, in the above example, we find the middle of the intial array (position 2 - 70). 
+						Then we sort the right and left halves (divide them further). This is achieved through the use of recursion -- a method calling itself.
+						We continue dividing (sorting) the array so long as the left half is smaller than the right. Once the array can no longer be sorted (divided) then we start to merge the two halves together.
+					</p>
+					<p>If you do not know where to start, check out these <a th:href="@{/st/sorting14}">hints</a>
+					</p>
+					<section th:if="${session.sorting14} eq true">
+						<h4>Sort method</h4>
+						<img class="rounded" th:src="@{/sorting/images/merge/merge2.png}"></img><br/>
+						<p>We start by sending the above information into out sort() method 
+							<ul>
+								<li>Array to sort</li>
+								<li>left index of the array (arrays are zero indexed, so that will be 0)</li>
+								<li>right index of the array (length - 1) </li>
+							</ul>
+						</p>
+						<p>We ensure that the left side is less than the right, since it is, we find the middle</p>
+						<img class="rounded" th:src="@{/sorting/images/merge/merge3.png}"></img><br/>
+						<p>Once the middle is found, we want to sort the left and right sides of the array, for these examples, we will focus on sorting and merging the left, but a similar process occurs on the right.</p>
+						<p>Since the new subarray still has a left that is less than its right, we will continue to pass both its sides into the sort method.</p>
+						<img class="rounded" th:src="@{/sorting/images/merge/merge4.png}"></img><br/><hr/>
+						<img class="rounded" th:src="@{/sorting/images/merge/merge5.png}"></img><br/>
+						<p>Finally, we reach a point when the sides passed in do not pass the conditional and we move to the merge method</p>
+						<img class="rounded" th:src="@{/sorting/images/merge/merge6.png}"></img><br/>
+						<hr/>
+						<img class="rounded" th:src="@{/sorting/images/merge/merge7.png}"></img><br/>
+						<p>We pass into out merge method the left and right indexes of the subarray we are sorting, and the middle</p>
+						<p>After finding the size of the left and right side, we create two temporary arrays and set the values inside their respective arrays</p>
+						<h4>Merge</h4>
+						<img class="rounded" th:src="@{/sorting/images/merge/merge8.png}"></img><br/>
+						<p>Then we will loop through the arrays, so long as they are the same length we set the values in the original array inside their sorted position. </p>
+						<img class="rounded" th:src="@{/sorting/images/merge/merge9.png}"></img><br/>
+						<img class="rounded" th:src="@{/sorting/images/merge/merge10.png}"></img><br/>
+						<p>Once the lowest subarray is merged, we recursively merge the remainder of the subarrays.</p>
+						<img class="rounded" th:src="@{/sorting/images/merge/merge11.png}"></img><br/>
+						<p>When the two sides of the array are not the same length, you have to ensure you sort any remaining values from the left and right sides.</p>
+						<img class="rounded" th:src="@{/sorting/images/merge/merge12.png}"></img><br/>
+						<p>With that, our left side is merged. A similar process occurs on the right, once both larger halves are merged, the method concludes by merging everything together and produces a sorted array. </p>
+					</section>
+				</section>
+				<section class="text-center">
+					<form class="pt-3" th:action="@{/sorting/merge}" method="get">
+						<button class="btn btn-outline-secondary" type="submit">Run</button>
+					</form>
+				</section>
+			</secion>
+		</div>
+		<div class="row g-2">
+			<secion class="p-3 m-5 rounded bg-light">
+				<h1>Sorting Algorithms </h1>
+				<section>
+					<p>To display your algorithms based on sorting time, you will add code to the comparators
+					<ul>
+						<li>FastestToSlowestComparator</li>
+						<li>SlowestToFastestComparator</li>
+					</ul>
+					A comparator evaluates two values and returns an int which will tell Java how they should be sorted.
+					<ul>
+						<li>positive - positive value indicates the first value is larger</li>
+						<li>negative - negative value indicates the second value is larger</li>
+						<li>zero - indicates the values are equal</li>
+					</ul>
+					You can make use of the Double wapper class and its methods
+					</p>
+				</section>
+				<section class="text-center">
+					<form class="pt-3" th:action="@{/sorting/group2/fastest}" method="get">
+						<button class="btn btn-outline-secondary" type="submit">Sort Fastest to Slowest</button>
+					</form>
+					<form class="pt-3" th:action="@{/sorting/group2/slowest}" method="get">
+						<button class="btn btn-outline-secondary" type="submit">Sort Slowest to Fastest</button>
+					</form>
+				</section>
+			</secion>
+		</div>
+	</div>
+</body>
+
+</html>
