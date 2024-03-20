@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Trails</title>
+	<title>Update Trail</title>
 	<link rel="icon" href="data:image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-tree' viewBox='0 0 16 16'>
   <path d='M8.416.223a.5.5 0 0 0-.832 0l-3 4.5A.5.5 0 0 0 5 5.5h.098L3.076 8.735A.5.5 0 0 0 3.5 9.5h.191l-1.638 3.276a.5.5 0 0 0 .447.724H7V16h2v-2.5h4.5a.5.5 0 0 0 .447-.724L12.31 9.5h.191a.5.5 0 0 0 .424-.765L10.902 5.5H11a.5.5 0 0 0 .416-.777zM6.437 4.758A.5.5 0 0 0 6 4.5h-.066L8 1.401 10.066 4.5H10a.5.5 0 0 0-.424.765L11.598 8.5H11.5a.5.5 0 0 0-.447.724L12.69 12.5H3.309l1.638-3.276A.5.5 0 0 0 4.5 8.5h-.098l2.022-3.235a.5.5 0 0 0 .013-.507'/>
 </svg>'">
@@ -20,38 +20,33 @@
 </head>
 
 <body>
+	<!--
+			Update Step 3
+				Change the title of the page
+				Update the mapping to update intstead of create
+				
+				th:object binds the trail object that we stored on 
+					the model to this form.
+				Ensure the id of the trail is passed when we save
+					Either have it as a hidden input or as text 
+					-- should not be able to change id
+		-->
 	<header th:insert="~{nav :: nav-fragment}"></header>
 	<section class="main-container">
-		<header class="navbar rounded p-3" th:fragment="trail-nav">
-			<a th:href="@{/trail}">Home</a>
-			<a th:href="@{/trail/create}">Add Trail</a>
-			<a th:href="@{/trail/search-trails}">Search Google</a>
-		</header>
-		<h1>Welcome Explorer</h1>
-		<h2>All Trails</h2>
-		<!--
- 			th:action - this defines the mapping we are looking for in the controller
- 			method - defines the type of mapping 
-
-				get - for GetMapping (all 'a' tags are get mapping)
-				 Information is sent in the path and can be retrieved with @PathVariable
-				  @{|/trail/find/${trail.id}|} -> GetMapping(/trail/find/{id})
-		          @{/trail/find/{id}((id)=${trail.id})} -> GetMapping(/trail/find/{id})
-
-				post - for PostMapping  
-				 Information is sent in the body and can be retrieved with @RequestParam
-				 name - defines the name of the parameter
-		-->
-		<form th:action="@{/trail/search}" method="post">
-			<input type="text" name="location" placeholder="Search by trail location">
-			<input type="submit" value="Search">
+		<header th:insert="~{demo/trail-home :: trail-nav}"></header>
+		<form th:action="@{/trail/update}" method="post" th:object="${trail}">
+			<input type="number" th:field="*{id}" hidden>
+			<label>Trail Name:</label><br>
+			<input type="text" name="name" th:field="*{name}"><br>
+			<label>Trail Location:</label><br>
+			<input type="text" name="location" th:field="*{location}"><br>
+			<label for="activity-types">Trail Activity:</label><br>
+			<select id="activity-types" name="activityType" th:field="*{activity}">
+				<option th:each="activity : ${activities}" th:value="${activity}" th:text="${activity}"></option>
+			</select><br>
+			<label>Pets Allowed:</label><br>
+			<input type="checkbox" name="petsAllowed" th:field="*{petsAllowed}"><br>
+			<input type="submit" value="Update Trail">
 		</form>
-		<div class="trail" th:each="trail : ${trails}">
-			<p th:text="${trail.name}">
-			<p th:text="${trail.location}">
-			<form th:action="@{|/trail/find/${trail.id}|}" method="get">
-				<input type="submit" value="Details">
-			</form>
-		</div>
 	</section>
 </html>

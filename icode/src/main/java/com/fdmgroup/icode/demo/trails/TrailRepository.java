@@ -45,4 +45,63 @@ public class TrailRepository {
 		return Optional.ofNullable(null);
 	}
 	
+	/*
+	 * Create a new list of trails we want to return
+	 * 		new ArrayList<>()
+	 * Loop through the existing list of trails and
+	 * 		add trails to new list that have a location matching that of the 
+	 * 		search location
+	 * return the new list of trails
+	 */
+
+	public List<Trail> findTrailsByLocation(String location) {
+		List<Trail> foundTrails = new ArrayList<>();
+		// For (DataType currentItem : collection)
+		// For each loop
+		for(Trail currentTrail : trails) {
+			if(currentTrail.getLocation().equalsIgnoreCase(location)) {
+				// Reach here only if returns true
+				foundTrails.add(currentTrail);
+			}
+		}
+		return foundTrails;
+	}
+
+	/*
+	 * Delete Step 4
+	 * 	Loop through the list of trails
+	 *	Find the index of the trail we want to remove
+	 * 		Store it in a variable
+	 * 		Break out of the loop
+	 * 	Remove Trail
+	 */
+	public void deleteTrailById(int id) {
+		int indexWeWantToRemove = 0;
+		for(int i = 0 ; i < trails.size(); i++) {
+			if(trails.get(i).getId() == id) {
+				indexWeWantToRemove = i;
+				break;
+			}
+		}
+		trails.remove(indexWeWantToRemove);
+	}
+
+	/*
+	 * Update Step 6
+	 * 	Loop through the list of trails
+	 * 	Find the index of the trail we want to replace
+	 * 		Store the updated information at the index
+	 * 		Break out of the loop
+	 */
+
+	public void updateTrail(Trail trail) {
+		for(int i = 0 ; i < trails.size(); i++) {
+			if(trails.get(i).getId() == trail.getId()) {
+				trails.set(i, trail);
+				break;
+			}
+		}
+		
+	}
+	
 }
