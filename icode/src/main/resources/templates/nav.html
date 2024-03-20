@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>NavBar</title>
+</head>
+<body>
+	<header th:fragment="nav-fragment">
+		<div class="nav-div">
+			<div class="dropdown">
+				<button class="btn bg-light dropdown-toggle" type="button" id="dropdownMenuButton"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<i class="bi bi-list"></i>
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					<a class="dropdown-item" th:href="@{/}">Home</a>
+					<a class="dropdown-item" th:href="@{/demo}">Demo</a>
+					<a class="dropdown-item" th:href="@{/converter}">Metrics Converter</a>
+					<a class="dropdown-item" th:href="@{/string-changer}">String Changer</a>
+					<a class="dropdown-item" th:href="@{/library}">Library</a>
+					<a class="dropdown-item" th:href="@{/e-shopping}">E-shopping</a>
+					<a class="dropdown-item" th:href="@{/image-filter}">Image Filter</a>
+					<a class="dropdown-item" th:href="@{/sorting}">Sorting Shenanigans</a>
+					<a class="dropdown-item" th:href="@{/cipher}">Cipher</a>
+					<a class="dropdown-item" th:href="@{/recipes}">Recipes</a>
+					<a class="dropdown-item" th:href="@{/planner}">Planner</a>
+					<a class="dropdown-item" th:href="@{/physical}">Physical Therapy</a>
+				</div>
+				
+			</div>
+		</div>
+	</header>
+</body>
+
+</html>

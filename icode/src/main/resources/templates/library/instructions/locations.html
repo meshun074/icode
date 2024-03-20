@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" href="data:image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-journal-code' viewBox='0 0 16 16'>
+        <path fill-rule='evenodd' d='M8.646 5.646a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L10.293 8 8.646 6.354a.5.5 0 0 1 0-.708m-1.292 0a.5.5 0 0 0-.708 0l-2 2a.5.5 0 0 0 0 .708l2 2a.5.5 0 0 0 .708-.708L5.707 8l1.647-1.646a.5.5 0 0 0 0-.708'/>
+        <path d='M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2'/>
+        <path d='M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z'/>
+      </svg>">
+          <link rel="stylesheet" th:href="@{/styles.css}">
+          <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+              integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+              crossorigin="anonymous"></script>
+          <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+              integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+              crossorigin="anonymous"></script>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+              integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+              crossorigin="anonymous"></script>
+	
+	<link rel="stylesheet" th:href="@{/library/libraryCSSFiles/locationFeature.css}">
+
+    <title>Library Location Feature Instructions</title>
+</head>
+<body>
+<header th:insert="~{nav :: nav-fragment}"></header>
+ <div class="main-container">
+		<h1 class="card-title"> Library Location Feature Instructions </h1>
+		<br>
+		<div class="text-center bg-light">
+			<a class="ex-button" th:href="@{/library}">Library Home</a>
+			<a class="ex-button"th:href="@{/library/locations/locationHome}">Location Feature Home</a>
+			<a class="ex-button" th:href="@{/library/solutions/locationSolutions}"> Hints </a>
+		</div>
+
+		<br>
+
+		<section class="instruction-card"> 
+			<h3>Library Location</h3> 
+			<br>
+			<p>Welcome to the Library Location Feature! Discover the diverse neighborhoods surrounding our library through this feature, 
+				showcasing our central hub for community connection and engagement. 
+			</p> 
+			<p> 
+				Time is of the essence! A bug in the Location Feature could hinder community involvement. Thank-you! For assisting us promptly in resolving this issue. 
+			</p> 
+		</section>
+
+
+		<section class="instruction-card"> 
+			<h3>Task 1</h3> 
+			<br/> 
+			<p> 
+				Community outreach is impossible without community building. Our Library Locations bring together our diverse neighbors. So, it is vital that you fix the bug in the "AllLocations" page. 
+				Make sure that the "AllLocations" page displays the locations. For now, don't worry about sorting them just make sure they display. 
+			</p> 
+			<br>
+			<div class="img-container">
+				<h3>Sample Table: </h3>
+				<img th:src="@{/library/locationImages/AllLocations.png}" alt="All Locations UI" class="img-thumbnail">
+			</div> 
+			<br>
+			<p>
+				<ul> To Do:
+					<li>First, you need to check the controller method that handles the request to display all locations.</li>
+					<li>Then, you need to check the HTML code that displays the locations.</li>
+					<li>Finally, you need to check the service method that retrieves all locations from the database.</li>
+				</ul>
+			</p>
+			<p>
+				Once you have fixed the bug, you can move on to the next task....Good Luck!
+			</p>
+		</section>
+
+		<section class="instruction-card">
+			<h3>Task 2</h3>
+			<br>
+			<div style="text-align: center;">
+				<blockquote>
+					<p>"Just the Knowledge that a good book is awaiting one at the end of a long day makes that day happier."</p>
+					<footer> -- Kathleen Norris</footer>
+				</blockquote>
+			</div>
+			<p>Once in a blue moon the stars align and we can open the doors to a new location. It is important that the add new location feature works correctly to keep our community inform of where they can 
+				find us.
+			</p>
+			<br>
+			<p>
+				To implement the "Add New Location" feature, you will need to perform the following steps:
+				<ol>
+					<li>Create a new controller method in your Spring application to handle the add request.</li>
+					<li>Add a new button or link in the HTML code to trigger the add request.</li>
+					<li>Pass the location information as parameters in the add request.</li>
+					<li>In the controller method, retrieve the location information and use it to add the new location to the database.</li>
+					<li>Handle any error scenarios, such as when the location information is incomplete or invalid.</li>
+				</ol>
+			</p>
+			<br>
+			<div class="img-container">
+				<h3>Sample Form: </h3>
+				<img th:src="@{/library/locationImages/newLocation.png}" alt="Add Location UI" class="img-thumbnail">
+			</div>
+
+		</section>
+
+		<section class="instruction-card">
+			<h3>Task 3</h3>
+			<br>
+			<p>
+				Sometimes even when we do our best, we have to say good-bye to one of our locations. Please make sure that the "Delete Location By Id" featue works correctly.
+			</p>
+			<p>
+				To implement the "Delete Location By Id" feature, you will need to perform the following steps:
+				<ol>
+					<li>Create a new controller method in your Spring application to handle the delete request.</li>
+					<li>Add a new button or link in the HTML code to trigger the delete request.</li>
+					<li>Pass the location ID as a parameter in the delete request.</li>
+					<li>In the controller method, retrieve the location ID and use it to delete the corresponding location from the database.</li>
+					<li>Handle any error scenarios, such as when the location ID does not exist.</li>
+				</ol>
+			</p>
+			<br>
+			<div class="img-container">
+				<h3>Sample Form: </h3>
+				<img th:src="@{/library/locationImages/deleteLocation.png}" alt="Delete Location UI" class="img-thumbnail">
+			</div>
+		</section>
+
+		<section class="instruction-card">
+			<h3>Task 4</h3>
+			<br>
+			<p>
+				Change is part of life. Our library sometimes has to change location based on the community's needs. 
+				For this reason, we need to make sure that the "Update Location Address" feature works correctly.
+			</p>
+			<br>
+			<p>
+				To implement the "Update Location Address" feature, you will need to perform the following steps:
+				<ol>
+					<li>Create a new controller method in your Spring application to handle the update request.</li>
+					<li>Add a new button or link in the HTML code to trigger the update request.</li>
+					<li>Pass the location ID and new address as parameters in the update request.</li>
+					<li>In the controller method, retrieve the location ID and new address and use it to update the corresponding location in the database.</li>
+					<li>Handle any error scenarios, such as when the location ID does not exist or the new address is invalid.</li>
+				</ol>
+			</p>
+			<br>
+			<div class="img-container">
+				<h3>Sample UI: </h3>
+				<img th:src="@{/library/locationImages/updateLocation.png}" alt="Update Location UI" class="img-thumbnail">
+			</div>
+		</section>
+
+		<section class="instruction-card">
+			<h3>Task 5</h3>
+			<br>
+			<p>
+				Our fifth task is to add a new feature by allowing users to search for locations by the location name. 
+				You need to add a new page that allows users to search for locations by name. 
+				Once the user enters the name, the page should display the location details.
+			</p>
+			<br>
+			<p>
+				To implement the "Search Locations by Name" feature, you will need to perform the following steps:
+				<ol>
+					<li>Create a new controller method in your Spring application to handle the search request.</li>
+					<li>Add a new input field and button in the HTML code to allow users to enter the location name and trigger the search request.</li>
+					<li>Pass the location name as a parameter in the search request.</li>
+					<li>In the controller method, retrieve the location name and use it to search for locations in the database.</li>
+					<li>Display the location details on the page based on the search results.</li>
+					<li>Handle any error scenarios, such as when no locations are found for the given name.</li>
+				</ol>
+			</p>
+			<br>
+			<div class="img-container">
+				<h3>Sample UI: </h3>
+				<img th:src="@{/library/locationImages/searchLocationName.png}" alt="Search Location UI" class="img-thumbnail">
+			</div>
+		</section>
+
+		<section class="instruction-card">
+			<h3>Task 6</h3>
+			<br>
+			<p>
+				You can continue refactoring the current functionality of locations to make it more efficient. You can also continue to practice
+				by add search feature for each of the location attributes.
+			</p>
+			<br>
+		</section>
+ </div>
+
+
+
+
+	
+    
+</body>
+</html>

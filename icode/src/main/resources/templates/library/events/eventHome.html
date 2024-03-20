@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" href="data:image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-journal-code' viewBox='0 0 16 16'>
+        <path fill-rule='evenodd' d='M8.646 5.646a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L10.293 8 8.646 6.354a.5.5 0 0 1 0-.708m-1.292 0a.5.5 0 0 0-.708 0l-2 2a.5.5 0 0 0 0 .708l2 2a.5.5 0 0 0 .708-.708L5.707 8l1.647-1.646a.5.5 0 0 0 0-.708'/>
+        <path d='M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2'/>
+        <path d='M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z'/>
+      </svg>">
+	<link rel="stylesheet" th:href="@{/styles.css}">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+
+
+	<link rel="stylesheet" th:href="@{/library/libraryCSSFiles/eventFeature.css}">
+
+	<title>Library Events</title>
+</head>
+
+<body>
+
+	<header th:insert="~{nav :: nav-fragment}"></header>
+	<div class="main-container">
+		<h1 class="card-title">Library Events</h1>
+		<div class="mt-5 bg-light">
+			<a class="ex-button" th:href="@{/library}">Library Home</a>
+			<a class="ex-button" th:href="@{/library/instructions/events}">Instructions</a>
+			<a class="ex-button" th:href="@{/library/events/allEvents}">All Events</a>
+			<a class="ex-button" th:href="@{/library/events/createEventForm}">Add An Event</a>
+			<a class="ex-button" th:href="@{/library/events/deleteEventForm}">Delete Event By Id</a>
+			<a class="ex-button" th:href="@{/library/events/purchaseEventTicketsForm}">Purchase Event Tickets</a>
+			<a class="ex-button" th:href="@{/library/events/updateEventDescriptionForm}">Update Description By Id</a>
+			<a class="ex-button" th:href="@{/library/events/updateEventLocationForm}">Update Event Location By Id</a>
+		</div>
+	</div>
+
+	<div class="instruction-card">
+		<h1 class="card-title">Event Object</h1>
+		<br>
+		<p>This Java class "Event" represents an event entity with properties like eventId, title, description,
+			and location. It is annotated as a Spring component with a prototype scope.
+			The class includes constructors for creating instances with unique IDs, getters and setters for the
+			properties, and a method to generate unique IDs incrementally.
+			The toString method is overridden to provide a string representation of the Event object.
+			The static variable nextId is used to ensure each Event instance has a distinct ID.</p>
+	</div>
+	<br>
+	<div class="instruction-card">
+		<h1 class="card-title">EventRepository</h1>
+		<br>
+		<p>The Java class "EventRepository" serves as a repository for managing events in a library catalog.
+			It is annotated as a Spring repository and contains methods for various event operations.
+			The constructor initializes the repository with a list of events. Methods like `findAll`, `save`,
+			`findByTitle`, `findByLocation`, `deleteEventById`, `updateDescription`, `findById`, and `searchByEventId`
+			handle functionalities such as retrieving all events, saving a new event with a generated ID, searching
+			events by title or location,
+			deleting an event by ID, updating an event's description, and finding an event by its ID. These methods
+			utilize iteration or streams
+			to perform the respective operations and return the desired event objects or null if not found.</p>
+	</div>
+	<br>
+	<div class="instruction-card">
+		<h1 class="card-title">EventService</h1>
+		<br>
+		<p>The Java class "EventService" serves as a service for managing events in a library catalog.
+			It is annotated as a Spring service and contains methods for various event operations.
+			The constructor initializes the service with a repository of events. Methods like `findAllEvents`,
+			`saveEvent`,
+			`findEventByTitle`, `findEventByLocation`, `deleteEventById`, `updateEventDescription`, `findEventById`, and
+			`searchByEventId`
+			handle functionalities such as retrieving all events, saving a new event with a generated ID, searching
+			events by title or location,
+			deleting an event by ID, updating an event's description, and finding an event by its ID. These methods
+			utilize the repository
+			to perform the respective operations and return the desired event objects or null if not found.</p>
+	</div>
+	<br>
+	<div class="mb-5 instruction-card">
+		<h1 class="card-title">EventController</h1>
+		<br>
+		<p>The Java class "EventController" serves as a controller for managing events in a library catalog.
+			It is annotated as a Spring controller and contains methods for various event operations.
+			The constructor initializes the controller with a service for events. Methods like `getAllEvents`,
+			`createEvent`,
+			`searchByTitle`, `searchByLocation`, `deleteEventById`, `updateEventDescription`, `searchByEventId`, and
+			`searchEventDetailsById`
+			handle functionalities such as retrieving all events, saving a new event with a generated ID, searching
+			events by title or location,
+			deleting an event by ID, updating an event's description, and finding an event by its ID. These methods
+			utilize the service
+			to perform the respective operations and return the desired event objects or null if not found.</p>
+	</div>
+</body>
+
+</html>

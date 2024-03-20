@@ -137,5 +137,9 @@ Done! You are set to go!
 <br /> [Zavier Paulino](https://github.com/Zp1021/Introduction)
  <br /> [Kai-Yin Huang](https://github.com/katehuangishere/introduction)
 <br /> [Jarin Tasnim](https://github.com/JTasnim24/introduction)
-> <br /> [MARIA_DAVIS](https://github.com/Davassy/Introduction1.git)
+<br /> [Becca Jonas](https://github.com/beccajonas/introduction)
+<br /> [Martin Brejniak](https://github.com/Martin-Brejniak/introduction)
+<br /> [Saachi Dinesh Kotadia]( https://github.com/Saachi-Kotadia/Introduction.git)
+<br /> [Joseph Szpigiel](https://github.com/JosephSzpigiel/introduction)
+> <br /> [Maria Davis](https://github.com/Davassy/Introduction1.git)
 

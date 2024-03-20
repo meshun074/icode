@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" href="data:image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-journal-code' viewBox='0 0 16 16'>
+        <path fill-rule='evenodd' d='M8.646 5.646a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L10.293 8 8.646 6.354a.5.5 0 0 1 0-.708m-1.292 0a.5.5 0 0 0-.708 0l-2 2a.5.5 0 0 0 0 .708l2 2a.5.5 0 0 0 .708-.708L5.707 8l1.647-1.646a.5.5 0 0 0 0-.708'/>
+        <path d='M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2'/>
+        <path d='M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z'/>
+      </svg>">
+	<link rel="stylesheet" th:href="@{/styles.css}">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+
+
+	<link rel="stylesheet" th:href="@{/library/libraryCSSFiles/donateFeature.css}">
+
+	<title>Library Donate Feature</title>
+</head>
+
+<body>
+	<header th:insert="~{nav :: nav-fragment}"></header>
+	<div class="main-container">
+		<h1 class="card-title">Library Donations Feature Instructions</h1>
+
+		<div>
+			<div class="text-center bg-light">
+				<a class="ex-button" th:href="@{/library}">Library Home</a>
+				<a class="ex-button" th:href="@{/library/donate/donateHome}">Donations Feature Home</a>
+				<a class="ex-button" th:href="@{/library/solutions/donateSolutions}"> Hints </a>
+			</div>
+		</div>
+
+		<section class="instruction-card">
+			<h3>Overview</h3>
+			<p>Welcome to the Library Donate Feature! This feature allows users to make donations to support our
+				library.
+				The donations help us acquire new books, improve our facilities, and provide better services to our
+				patrons.
+				We appreciate all the generosity and support in helping us fulfill our mission of promoting literacy and
+				knowledge.
+			</p>
+			<br>
+			<p>
+				As we well know, time is money. And, every minute our site is down may result in irreparable damage to
+				our annual budget.
+				So, please hurry and help us fix the bugs.
+			</p>
+		</section>
+
+		<section class="instruction-card">
+			<h3>Task 1</h3>
+			<br />
+			<p>
+				Transperancy is the life blood of non-profits. Having our budgetary allocations questioned won't go over
+				well. So, your first
+				task is to fix the bugs in the "AllDonations" page. The bug is that the "AllDonations" page is not
+				displaying the donations we have received.
+				You need to fix the bug so that the "AllDonations" page displays the donations. For now, don't worry
+				about sorting them just make sure they display.
+			</p>
+			<br />
+			<p>
+				Once you have fixed the bug, you can move on to the next task....Good Luck!
+			</p>
+			<br />
+			<p>
+				Here is a picture of the "All Donation Records" page when it is working correctly:
+			</p>
+			<br />
+			<div class="img-container">
+				<img th:src="@{/library/donateImages/allDonations.png}" alt="All Donations Page" class="img-thumbnail">
+			</div>
+			<br />
+			<p>
+			<ol>To Do:
+				<li>Review the "allDonations.html" template </li>
+				<li>Review the "DonationController" class to make sure the correct logic is implemented to render the
+					content.</li>
+				<li>Review the "DonationService" class to make sure the correct logic is implemented to retrieve the
+					donations.</li>
+				<li>Review the "DonationRepository" class to make sure the correct logic is implemented to retrieve the
+					donations.</li>
+			</ol>
+			</p>
+		</section>
+
+		<section class="instruction-card">
+			<h3>Task 2</h3>
+			<br />
+			<p>
+				Keeping our donation form alive and active is essential to all our outreach programs. Your next task is
+				to fix the bugs in the "AddDonation" page.
+				Make sure patrons can add their donations to the library. You will need to edit the AddDonation.html
+				page to make sure the form adds a new donation to the library catalog and redirects
+				users to the allDonations page. They should be able to see their names and the amount they donated being
+				recognized for all the good they do for the community.
+			</p>
+			<br />
+			<p>
+				Here is a picture of the "Add Donation" page when it is working correctly:
+			</p>
+			<br />
+			<div class="img-container">
+				<img th:src="@{/library/donateImages/addDonation.png}" alt="Add Donation Page" class="img-thumbnail">
+			</div>
+			<br />
+			<p>
+			<ul>To Do:
+				<li>Review the "addDonation.html" template</li>
+				<li>Review the "DonationController" class to make sure the correct logic is implemented to render the
+					content.</li>
+				<li>Review the "DonationService" class to make sure the correct logic is implemented to add the
+					donation.</li>
+				<li>Review the "DonationRepository" class to make sure the correct logic is implemented to add the
+					donation.</li>
+			</ul>
+			</p>
+		</section>
+		<section class="instruction-card">
+			<h3>Task 3 </h3>
+			<br />
+			<p>
+				Mistakes have been known to happen...sometimes we add a little zero that doesn't belong there. Ooops!
+			</p>
+			<br />
+			<p>Your task is to make sure the Edit Donation Amount page works correctly. The user should be able to
+				search for their donation by the donation id. If the donation record exists the details of the record
+				should be displayed on a card. A separate form should offer the user an opportunity to update the
+				donation amount and save the changes. The user should be redirected to the allDonations page and see
+				the updated donation amount.
+			</p>
+			<br />
+			<br />
+			<div class="img-container">
+				<h3> Sample Search Form </h3>
+				<img th:src="@{/library/donateImages/searchDonationByID.png}" alt="Search Donation By ID"
+					class="img-thumbnail">
+			</div>
+			<br />
+			<div class="img-container">
+				<h3> Sample Display of Search Results </h3>
+				<img th:src="@{/library/donateImages/updateDonationResultsID.png}" alt="Search Donation By ID Results"
+					class="img-thumbnail">
+			</div>
+			<br />
+			<p>
+			<ul>To Do:
+				<li>Review the "updateDonationAmountByID.html" template to undertand the data request and the rendering
+					logic</li>
+				<li>Review the "DonationController" class to make sure the correct logic is implemented to render the
+					content.</li>
+				<li>Review the "DonationService" class to make sure the correct logic is implemented to update the
+					donation amount.</li>
+				<li>Review the "DonationRepository" class to make sure the correct logic is implemented to update the
+					donation amount.</li>
+			</ul>
+			</p>
+			<p>
+				Once you have fixed the bug, you can move on to the next task....Good Luck! <br />
+			</p>
+		</section>
+
+		<section class="instruction-card">
+			<h3>Task 4</h3>
+			<br />
+			<p>All of our community outreach programs are deserving of support...but sometimes programs receive more
+				than they need. In this event, users should have the opportunity to edit the target programs
+				they would like their donations to support. Your task is to make sure the Edit Donation Program page
+				works correctly. The user should be able to search for their donation by the donation id.
+				If the donation record exists the details of the record should be displayed for the user. A separate
+				form should offer the user an opportunity to update the donation program and save the changes.
+				Once the user saves the changes, they should be redirected to the allDonations page and see the updated
+				donation program.
+			</p>
+
+			<br />
+			<div class="img-container">
+				<h3> Sample Result: </h3>
+				<img th:src="@{/library/donateImages/updateProgram.png}" alt="Search Donation By ID Results"
+					class="img-thumbnail">
+			</div>
+			<br />
+			<p>
+			<ul>To Do:
+				<li>Review the "updateDonationTargetProgram.html" template to understand the data request and the
+					rendering logic</li>
+				<li>Review the "DonationController" class to make sure the correct logic is implemented to render the
+					content.</li>
+				<li>Review the "DonationService" class to make sure the correct logic is implemented to update the
+					donation target program.</li>
+				<li>Review the "DonationRepository" class to make sure the correct logic is implemented to update the
+					donation target program.</li>
+			</ul>
+			</p>
+			<p>
+				Once you have fixed the bug, you can move on to the next task....Good Luck! <br />
+			</p>
+		</section>
+
+		<section class="instruction-card">
+			<h3>Task 5</h3>
+			<br />
+			<p> Our next task is to make sure the Delete Donation page works correctly. The user should be able to
+				search for their donation by the donation id. If the donation record exists the user should be prompted
+				to confirm that they want to delete the donation record. Once the user confirms the deletion, they
+				should be redirected to the allDonations page and see the updated donation list.
+			</p>
+			<br />
+			<div class="img-container">
+				<h3>Sample Delete Donation Search: </h3>
+				<img th:src="@{/library/donateImages/Delete.png}" alt="Delete A Donation" class="img-thumbnail">
+			</div>
+			<br />
+			<p>
+			<ol>To Do:
+				<li>Review the "DeleteDonationById.html" template to understand the Get/Post method calls it is making
+				</li>
+				<li>Review the "DonationController" class to make sure the correct logic is implemented to render the
+					DeleteDonationById page.</li>
+				<li>Review the "DonationService" class to make sure the correct logic is implemented to search for
+					donations by ID.</li>
+				<li>Review the "DonationRepository" class to make sure the correct logic is implemented to delete a
+					donation by ID.</li>
+			</ol>
+			</p>
+
+		</section>
+
+		<section class="instruction-card">
+			<h3>Task 6</h3>
+			<br />
+			<p>Tax season is upon us...while we don't recommend making donations for the tax benefits, we do want to
+				make sure our patrons have the information they need to claim their donations. Your task is to make sure
+				the
+				"Donation Receipt By Name" page works correctly. The user should be able to search for their donation by
+				their full name. If the donation record exists the details of the record should be displayed for the
+				user.
+				Don't worry about the pdf download.
+			</p>
+			<br />
+			<div class="img-container">
+				<h3>Sample Search Form: </h3>
+				<img th:src="@{/library/donateImages/Receipt.png}" alt="Search Donation By Name" class="img-thumbnail">
+			</div>
+
+			<br />
+			<p>
+			<ol>To Do:
+				<li>Review the "searchDonationReceiptByName.html" template to understand the Get/Post method calls it is
+					making </li>
+				<li>Review the "DonationController" class to make sure the correct logic is implemented to render the
+					page.</li>
+				<li>Review the "DonationService" class to make sure the correct logic is implemented to search for
+					donations by Name</li>
+				<li>Review the "DonationRepository" class to make sure the correct logic is implemented to delete a
+					donation by Name.</li>
+			</ol>
+			</p>
+		</section>
+	</div>
+</body>
+
+</html>
