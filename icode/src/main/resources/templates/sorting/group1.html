@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Sorting Shenanigans</title>
+	<link rel="icon" href="data:image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-award' viewBox='0 0 16 16'>
+  <path d='M9.669.864 8 0 6.331.864l-1.858.282-.842 1.68-1.337 1.32L2.6 6l-.306 1.854 1.337 1.32.842 1.68 1.858.282L8 12l1.669-.864 1.858-.282.842-1.68 1.337-1.32L13.4 6l.306-1.854-1.337-1.32-.842-1.68zm1.196 1.193.684 1.365 1.086 1.072L12.387 6l.248 1.506-1.086 1.072-.684 1.365-1.51.229L8 10.874l-1.355-.702-1.51-.229-.684-1.365-1.086-1.072L3.614 6l-.25-1.506 1.087-1.072.684-1.365 1.51-.229L8 1.126l1.356.702z'/>
+  <path d='M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1z'/>
+</svg>">
+	<link rel="stylesheet" th:href="@{/styles.css}">
+	<link rel="stylesheet" th:href="@{/sorting/styles.css}">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<header th:insert="~{nav :: nav-fragment}"></header>
+	<div class="container">
+		<div class="mt-5 mb-4  bg-light rounded row text-center">
+
+			<div class="col">
+				<div>
+					<h1 class="heading">Sorting Algorithms</h1>
+				</div>
+				<div th:each="algorithm : ${algorithms}">
+					<h2><span th:text="${algorithm.name}"></span>: <span th:unless="${algorithm.isCompleted} eq false"
+							th:text="${algorithm.time}"></span><span th:if="${algorithm.isCompleted} eq false">Not
+							Completed</span></h2>
+				</div>
+				<a class="text-center" th:href="@{/sorting/group1}">
+					<p>Refresh</p>
+				</a>
+			</div>
+		</div>
+		<div class="row g-2">
+			<secion class="p-3 rounded bg-light">
+				<h1>Selection Sort <a th:if="${session.sorting3} eq false" th:href="@{/st/sorting3}"><i
+							class="bi bi-chevron-double-down"></i></a>
+					<a th:if="${session.sorting3} eq true" th:href="@{/st/sorting3}"><i
+							class="bi bi-chevron-double-up"></i></a>
+				</h1>
+				<section th:if="${session.sorting3} eq true">
+					<img class="rounded" th:src="@{/sorting/images/selection/selection1.png}"></img><br />
+					<img class="rounded" th:src="@{/sorting/images/selection/selection2.png}"></img><br />
+					<img class="rounded" th:src="@{/sorting/images/selection/selection3.png}"></img>
+					<p>This algorithm continuously selects the smallest elements from the unsorted portion of the array
+						and places it at the end of the sorted portion.</p>
+					<p>For instance, above we start with an unsorted array. We place one pointer at the beginning of the
+						array and have a second loop through the array, checking for the smallest element in the array.
+						After completing the loop, 1 is identified as the smallest element. The smallest element is
+						placed in its sorted position.</p>
+					<p>After the first elements is verified to be the smallest, the first pointer is moved and the
+						processes is repeated until the array is sorted.</p>
+					<p>If you do not know where to start, check out these <a th:href="@{/st/sorting4}">hints</a>
+					</p>
+					<section th:if="${session.sorting4} eq true">
+						<p>You will need to make use of "for" loops with this algorithm</p>
+						<ul>
+							<li><img class="rounded" th:src="@{/sorting/images/for-loop.png}"></img></li>
+							<li>i - is the starting index. Arrays are 0 indexed, so we will start at zero</li>
+							<li>condition - the loop will continue as long as this condition is true</li>
+							<ul>
+								<li> Since arrays are zero indexed, the max index within the array of length 6 is 5
+									(length -1). If you forget to subtract, you will get an exception thrown</li>
+							</ul>
+							<li>i++ - this increments the pointer by one, moving it down the array</li>
+						</ul>
+						<p>
+							<img class="rounded" th:src="@{/sorting/images/selection/selection2.png}"></img> <br />
+							At this point we indentified that the minValue is 1 with is stored at array[j]. So we swap
+							the values of array[i] and array[j].<br />
+							<img class="rounded" th:src="@{/sorting/images/selection/selection3.png}"></img>
+						</p>
+						<p>
+							After j reaches the end of the length of the array, we shift i to 1 (position 2)<br />
+							<img class="rounded" th:src="@{/sorting/images/selection/selection4.png}"></img>
+						</p>
+						<p>
+							After j reaches the end of the length of the array, we determine 2 is the smallest element,
+							no swaps are necessary.
+							<br /><img class="rounded" th:src="@{/sorting/images/selection/selection5.png}"></img>
+						</p>
+
+						<p>
+							Then the same logic is applied until the entire array is sorted (i reaches the end of the
+							array)<br />
+							<img class="rounded" th:src="@{/sorting/images/selection/selection6.png}"></img><br />
+							<img class="rounded" th:src="@{/sorting/images/selection/selection7.png}"></img><br />
+							<img class="rounded" th:src="@{/sorting/images/selection/selection8.png}"></img><br />
+							<img class="rounded" th:src="@{/sorting/images/selection/selection9.png}"></img><br />
+							<img class="rounded" th:src="@{/sorting/images/selection/selection10.png}"></img><br />
+							<img class="rounded" th:src="@{/sorting/images/selection/selection11.png}"></img><br />
+							<img class="rounded" th:src="@{/sorting/images/selection/selection12.png}"></img><br />
+							<img class="rounded" th:src="@{/sorting/images/selection/selection13.png}"></img><br />
+							<img class="rounded" th:src="@{/sorting/images/selection/selection14.png}"></img>
+						</p>
+					</section>
+				</section>
+				<section class="text-center">
+					<form class="pt-3" th:action="@{/sorting/group1/selection}" method="get">
+						<button class="btn btn-outline-secondary" type="submit">Run</button>
+					</form>
+				</section>
+			</secion>
+		</div>
+
+		<div class="row g-2">
+			<secion class="p-3 m-5 rounded bg-light">
+				<h1>Bubble Sort <a th:if="${session.sorting5} eq false" th:href="@{/st/sorting5}"><i
+							class="bi bi-chevron-double-down"></i></a><a th:if="${session.sorting5} eq true"
+						th:href="@{/st/sorting5}"><i class="bi bi-chevron-double-up"></i></a></h1>
+				<section th:if="${session.sorting5} eq true">
+					<img class="rounded" th:src="@{/sorting/images/bubble/bubble1.png}"></img><br />
+					<img class="rounded" th:src="@{/sorting/images/bubble/bubble2.png}"></img><br />
+					<p>This algorithm works by moving the largest elements to the end of the array. They bubble up...
+					</p>
+					<p>For instance, above we start with an unsorted array. We place one pointer at the beginning and we
+						check to see if the current element is larger than the next. If the element is larger, the two
+						elements are swapped.</p>
+					<p>This is continued until no swaps are needed -- the array is sorted.</p>
+					<p>If you do not know where to start, check out these <a th:href="@{/st/sorting6}">hints</a>
+					</p>
+					<section th:if="${session.sorting6} eq true">
+						<p>You will need to make use of "for" loops with this algorithm</p>
+						<ul>
+							<li><img class="rounded" th:src="@{/sorting/images/for-loop.png}"></img></li>
+							<li>i - is the starting index. Arrays are 0 indexed, so we will start at zero</li>
+							<li>condition - the loop will continue as long as this condition is true</li>
+							<ul>
+								<li> Since arrays are zero indexed, the max index within the array of length 6 is 5
+									(length -1). If you forget to subtract, you will get an exception thrown</li>
+							</ul>
+							<li>i++ - this increments the pointer by one, moving it down the array</li>
+						</ul>
+						<img class="rounded" th:src="@{/sorting/images/bubble/bubble1.png}"></img><br />
+						<p>We start off with an unsorted array</p>
+						<img class="rounded" th:src="@{/sorting/images/bubble/bubble2.png}"></img><br />
+						<p>We can have a boolean flag, which indicates whether a swap occurs. As long as swaps occur, we
+							will continue bubbling large numbers to the end of the array</p><br />
+						<img class="rounded" th:src="@{/sorting/images/bubble/bubble3.png}"></img><br /><br />
+						<img class="rounded" th:src="@{/sorting/images/bubble/bubble4.png}"></img><br /><br />
+						<img class="rounded" th:src="@{/sorting/images/bubble/bubble5.png}"></img><br /><br />
+						<p>Finally, we have reached the end and no swaps have occured</p><br />
+						<img class="rounded" th:src="@{/sorting/images/bubble/bubble6.png}"></img><br /><br />
+						<p>How could we possibly make this approach more efficient?</p>
+					</section>
+				</section>
+				<section class="text-center">
+					<form class="pt-3" th:action="@{/sorting/bubble}" method="get">
+						<button class="btn btn-outline-secondary" type="submit">Run</button>
+					</form>
+				</section>
+			</secion>
+		</div>
+		<div class="row g-2">
+			<secion class="p-3 rounded bg-light">
+				<h1>Quick Sort <a th:if="${session.sorting7} eq false" th:href="@{/st/sorting7}"><i
+							class="bi bi-chevron-double-down"></i></a>
+					<a th:if="${session.sorting7} eq true" th:href="@{/st/sorting7}"><i
+							class="bi bi-chevron-double-up"></i></a>
+				</h1>
+				<section th:if="${session.sorting7} eq true">
+					<img class="rounded" th:src="@{/sorting/images/quick/quickSort.png}"></img><br /><br />
+					<p>This algorithm works by creating a partition and then sorting elements around the assigned
+						partition</p>
+					<p>For instance, we start with an unsorted array. We identify the partition as the last element. We
+						cycle through the unsorted elements and if they are less than the partition, we place them in
+						sorted order at the beginning of the array. </p>
+					<p>After the elements have been organized based on the partition, the partition is placed at the end
+						of the sorted elements.</p>
+					<p>Repeat the above process with a subset of the array and the new partition (the number at the end
+						of the array).</p>
+					<p>This algorithm is completed when there are no elements right of the partition (everything is
+						sorted).</p>
+					<p>If you do not know where to start, check out these <a th:href="@{/st/sorting8}">hints</a>
+					</p>
+					<section th:if="${session.sorting8} eq true">
+						<p>This algorrithm is achieved through the use of recursion -- the method will call itself</p>
+						<img class="rounded" th:src="@{/sorting/images/quick/quick1.png}"></img><br />
+						<p>First, we want to determine the low and the high (what area is unsorted). At the beginning
+							this will be the first and last index of the array.
+							Arrays are zero indexed, so their first element is stored at 0 and their last is length-1.
+						</p>
+						<p>IF the low is less than the high, we want to find the partition. It would be helpful to store
+							this logic in a different method that the original quick sort calls</p>
+						<img class="rounded" th:src="@{/sorting/images/quick/quick2.png}"></img><br />
+						<p>We will pass into the partition method the array we are sorting, the low of the unsorted
+							section we are handling and the high.</p>
+						<p>The last element of the unsorted section will be the pivot (the element that all others will
+							be organized around)-- purple outline</p>
+						<p>i will indicate the location left of where our pivot will be finally placed.
+						<ul>
+							<li>In the beginning of the loop, we are assuming the pivot will be placed at the beginning
+								(low). Since our low here is 0 -> i is -1</li>
+							<li>We will incriment i whenever elements are swapped around the pivot.</li>
+							<li>i is important as it will relay to the sorting method the location where are pivot
+								number is (i + 1)</li>
+						</ul>
+						</p><br />
+						<img class="rounded" th:src="@{/sorting/images/quick/quick3.png}"></img><br />
+						<img class="rounded" th:src="@{/sorting/images/quick/quick4.png}"></img><br />
+						<img class="rounded" th:src="@{/sorting/images/quick/quick5.png}"></img><br />
+						<img class="rounded" th:src="@{/sorting/images/quick/quick6.png}"></img><br />
+						<p>We loop through the unsorted section with j, it increments to move through the elements.
+							All elements, 10, 7, 8, and 9, and greater than 5, no swaps are necessary.</p>
+						<img class="rounded" th:src="@{/sorting/images/quick/quick7.png}"></img><br />
+						<img class="rounded" th:src="@{/sorting/images/quick/quick8.png}"></img><br />
+						<img class="rounded" th:src="@{/sorting/images/quick/quick9.png}"></img><br />
+						<p>When we reach 1 however, it is less than 5
+						<ul>
+							<li>We increment the value of i</li>
+							<li>We swap the value of element at i with the element at j</li>
+						</ul>
+						</p><br />
+						<img class="rounded" th:src="@{/sorting/images/quick/quick10.png}"></img><br />
+						<img class="rounded" th:src="@{/sorting/images/quick/quick11.png}"></img><br />
+						<p>When j reaches 5, it is no longer lower than the high, we have reached the end of the
+							unsorted section of the array.
+						<ul>
+							<li>We place the pivot in its sorted position (i+1)</li>
+							<li>We swap the value of element at i+1 with the element at high</li>
+							<li>Method ends by returning the position of the pivot (i+1)</li>
+						</ul>
+						</p><br />
+						<img class="rounded" th:src="@{/sorting/images/quick/quick12.png}"></img><br />
+						<p>When we return to the sort method, we see 1 and 5 are sorted</p><br />
+						<img class="rounded" th:src="@{/sorting/images/quick/quick13.png}"></img><br />
+						<p>Then we send the left and right sides of the partition into the sort method to have the
+							process continue. Since the low of the left side is not less than its high, it is done. The
+							right side has the above process continued.</p><br />
+					</section>
+				</section>
+				<section class="text-center">
+					<form class="pt-3" th:action="@{/sorting/quick}" method="get">
+						<button class="btn btn-outline-secondary" type="submit">Run</button>
+					</form>
+				</section>
+			</secion>
+		</div>
+		<div class="row g-2">
+			<secion class="p-3 m-5 rounded bg-light">
+				<h1>Sorting Algorithms</h1>
+					<section>
+						<p>To display your algorithms based on sorting time, you will add code to the comparators 
+							<ul>
+								<li>FastestToSlowestComparator</li>
+								<li>SlowestToFastestComparator</li>
+							</ul>
+							A comparator evaluates two values and returns an int which will tell Java how they should be sorted. 
+							<ul>
+								<li>positive - positive value indicates the first value is larger</li>
+								<li>negative - negative value indicates the second value is larger</li>
+								<li>zero - indicates the values are equal</li>
+							</ul>
+							You can make use of the Double wapper class and its methods
+						</p>
+					</section>
+					<section class="text-center">
+						<form class="pt-3" th:action="@{/sorting/group1/fastest}" method="get">
+							<button class="btn btn-outline-secondary" type="submit">Sort Fastest to Slowest</button>
+						</form>
+						<form class="pt-3" th:action="@{/sorting/group1/slowest}" method="get">
+							<button class="btn btn-outline-secondary" type="submit">Sort Slowest to Fastest</button>
+						</form>
+					</section>
+			</secion>
+		</div>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" href="data:image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-journal-code' viewBox='0 0 16 16'>
+        <path fill-rule='evenodd' d='M8.646 5.646a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L10.293 8 8.646 6.354a.5.5 0 0 1 0-.708m-1.292 0a.5.5 0 0 0-.708 0l-2 2a.5.5 0 0 0 0 .708l2 2a.5.5 0 0 0 .708-.708L5.707 8l1.647-1.646a.5.5 0 0 0 0-.708'/>
+        <path d='M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2'/>
+        <path d='M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z'/>
+      </svg>">
+	<link rel="stylesheet" th:href="@{/styles.css}">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" th:href="@{/library/libraryCSSFiles/musicFeature.css}">
+
+	<title>Library Music Feature Instructions</title>
+</head>
+
+<body>
+	<header th:insert="~{nav :: nav-fragment}"></header>
+	<div class="main-container">
+
+		<div>
+			<h1 class="card-title">Library Music Feature Instructions</h1>
+			<br>
+			<div class="text-center bg-light">
+				<a class="ex-button" th:href="@{/library}">Library Home</a>
+				<a class="ex-button" th:href="@{/library/music/musicHome}">Music Feature Home</a>
+				<a class="ex-button" th:href="@{/library/solutions/musicSolutions}">Hints</a>
+			</div>
+		</div>
+		<br>
+
+		<section class="instruction-card">
+			<h3>Overview</h3>
+			<p> Welcome to the Library Music Feature! This feature allows you to manage the music in our library.
+				Usually, you can view all music, add a new album, add a new record, search for music by ID, title,
+				artist, or genre, edit an album's description,
+				edit a record's description, delete a record, and delete an album.
+				But fortunately you are here now to help us fix some bugs and add some new features.
+			</p>
+		</section>
+
+		<section class="instruction-card">
+			<h3>Task 1</h3>
+			<p> The first task is to fix the bug in the "All Music" page. The bug is that the "All Music" page is not
+				displaying the music.
+				You need to fix the bug so that the "All Music" page displays the music.
+			</p>
+			<br>
+			<p>
+				To fix the bug, you need to go to the "All Music" page and check the code to see what is causing the
+				bug.
+				Once you find the bug, you need to fix it and test the "All Music" page to make sure it is displaying
+				the music. You may need to reference the following annotations or tags:
+			</p>
+			<br />
+			<div class="img-container">
+				<h3>Example UI: </h3>
+				<img th:src="@{/library/musicImages/allMusic.png}" alt="All Music Page" class="img-thumbnail">
+			</div>
+			<br />
+			<p>
+			<ol>To Do:
+				<li>Review the "allMusic.html" template </li>
+				<li>Review the "MusicController" class to make sure the correct logic is implemented to render the
+					content.</li>
+				<li>Review the "MusicService" class to make sure the correct logic is implemented to retrieve the music.
+				</li>
+				<li>Review the "MusicRepository" class to make sure the correct logic is implemented to retrieve the
+					music.</li>
+			</ol>
+			</p>
+			<br />
+			<p>
+				Once you have fixed the bug, you can move on to the next task....Good Luck!
+			</p>
+		</section>
+
+		<section class="instruction-card">
+			<h3>Task 2 </h3>
+			<br />
+			<p>Since knowledge is power...the more music we can bring into the community the stronger we will grow. Our
+				second Task
+				is to add a new feature by adding a new album to the music library catalog.
+			</p>
+			<br />
+			<p>
+				To fix the bug, go to the MusicController to check that the appropriate code is there to render the
+				AddAlbum page. Once the correct
+				code is in place, you will need to edit the AddAlbum.html page to make sure the form adds a new album to
+				the Music library catalog and redirects
+				users to the allMusic page.
+			</p>
+			<br />
+			<div class="img-container">
+				<h3>Example UI: </h3>
+				<img th:src="@{/library/musicImages/AddAlbum.png}" alt="Add Album Page" class="img-thumbnail">
+			</div>
+			<br />
+			<p>
+			<ol>To Do:
+				<li>Review the "AddAlbum.html" template </li>
+				<li>Review the "MusicController" class to make sure the correct logic is implemented to render the
+					AddAlbum page.</li>
+				<li>Review the "MusicService" class to make sure the correct logic is implemented to add a new album to
+					the music library catalog.</li>
+				<li>Review the "MusicRepository" class to make sure the correct logic is implemented to save the new
+					album to the database.</li>
+			</ol>
+			</p>
+			<br />
+		</section>
+
+		<section class="instruction-card">
+			<h3>Task 3</h3>
+			<br />
+			<p>
+				Our third task is to add a new feature by allowing to add a new record to the music library catalog.
+				You need to add a new page that allows users to add a new record to the music library catalog.
+				Once the user enters the record details, the page should display the record details.
+			</p>
+			<br />
+			<div class="img-container" <h3>Example UI: </h3>
+				<br>
+				<img th:src="@{/library/musicImages/AddRecord.png}" alt="Add Record Page" class="img-thumbnail">
+			</div>
+			<br />
+			<p>
+			<ol>To Do:
+				<li>Review the "AddRecord.html" template </li>
+				<li>Review the "MusicController" class to make sure the correct logic is implemented to render the
+					AddRecord page.</li>
+				<li>Review the "MusicService" class to make sure the correct logic is implemented to add a new record to
+					the music library catalog.</li>
+				<li>Review the "MusicRepository" class to make sure the correct logic is implemented to save the new
+					record to the database.</li>
+			</ol>
+			</p>
+			<br />
+		</section>
+
+		<section class="instruction-card">
+			<h3>Task 4</h3>
+			<br />
+			<p>
+				Our fourth task is to add a new feature by allowing users to add a new album to the music library
+				catalog.
+				You need to add a new page that allows users to add a new album to the music library catalog.
+				Once the user enters the album details, the page should display the album details.
+			</p>
+			<br />
+			<div class="img-container">
+				<h3>Example UI: </h3>
+				<br>
+				<img th:src="@{/library/musicImages/AddAlbum.png}" alt="Add Album Page" class="img-thumbnail">
+			</div>
+			<br />
+			<p>
+			<ol>To Do:
+				<li>Review the "AddAlbum.html" template </li>
+				<li>Review the "MusicController" class to make sure the correct logic is implemented to render the
+					AddAlbum page.</li>
+				<li>Review the "MusicService" class to make sure the correct logic is implemented to add a new album to
+					the music library catalog.</li>
+				<li>Review the "MusicRepository" class to make sure the correct logic is implemented to save the new
+					album to the database.</li>
+			</ol>
+			</p>
+			<br />
+		</section>
+
+		<section class="instruction-card">
+			<h3>Task 5</h3>
+			<br />
+			<p>
+				Our fifth task is to add a new feature by allowing users to search for music by artist.
+				You need to add a new page that allows users to search for music by artist.
+				Once the user enters the artist, the page should display the music details.
+			</p>
+			<br />
+			<div class="img-container">
+				<h3>Example UI: </h3>
+				<br>
+				<img th:src="@{/library/musicImages/SearchArtist.png}" alt="Search By Artist Page"
+					class="img-thumbnail">
+			</div>
+			<br />
+			<p>
+			<ol>To Do:
+				<li>Review the "SearchArtist.html" template </li>
+				<li>Review the "MusicController" class to make sure the correct logic is implemented to render the
+					SearchArtist page.</li>
+				<li>Review the "MusicService" class to make sure the correct logic is implemented to search for music by
+					artist.</li>
+				<li>Review the "MusicRepository" class to make sure the correct logic is implemented to retrieve music
+					by artist from the database.</li>
+			</ol>
+			</p>
+			<br />
+			<p>
+				Use similar logic to implement the search by title and genre.
+			</p>
+		</section>
+
+		<section class="instruction-card">
+			<h3>Task 6</h3>
+			<br />
+			<p>
+				Our sixth task is to add a new feature by allowing users to edit an album's description.
+				You need to add a new page that allows users to search for albums by ID and edit the album's
+				description.
+				Once the user enters the ID, the page should display the album details and allow the user to edit the
+				album's description.
+				When the user submits the form, the album's description should be updated and the user redirected to the
+				"All Music" page.
+			</p>
+			<br />
+			<div class="img-container">
+				<h3>Example UI: </h3>
+				<br>
+				<img th:src="@{/library/musicImages/UpdateDesc.png}" alt="Update Description Page"
+					class="img-thumbnail">
+			</div>
+			<br />
+			<p>
+			<ol>To Do:
+				<li>Review the "SearchArtist.html" template </li>
+				<li>Review the "MusicController" class to make sure the correct logic is implemented to render the
+					SearchArtist page.</li>
+				<li>Review the "MusicService" class to make sure the correct logic is implemented to search for music by
+					artist.</li>
+				<li>Review the "MusicRepository" class to make sure the correct logic is implemented to retrieve music
+					by artist from the database.</li>
+			</ol>
+			</p>
+			<br />
+			<p>
+				Use similar logic to implement the update Record descritpion feature.
+			</p>
+		</section>
+		</section>
+
+
+	</div>
+
+
+</body>
+
+</html>
+```

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+    <link rel="icon" href="data:image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-journal-code' viewBox='0 0 16 16'>
+        <path fill-rule='evenodd' d='M8.646 5.646a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L10.293 8 8.646 6.354a.5.5 0 0 1 0-.708m-1.292 0a.5.5 0 0 0-.708 0l-2 2a.5.5 0 0 0 0 .708l2 2a.5.5 0 0 0 .708-.708L5.707 8l1.647-1.646a.5.5 0 0 0 0-.708'/>
+        <path d='M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2'/>
+        <path d='M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z'/>
+      </svg>">
+          <link rel="stylesheet" th:href="@{/styles.css}">
+          <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+              integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+              crossorigin="anonymous"></script>
+          <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+              integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+              crossorigin="anonymous"></script>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+              integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+              crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" th:href="@{/library/libraryCSSFiles/movieFeature.css}">
+
+    <title>Library Movies</title>
+</head>
+<body>
+<header th:insert="~{nav :: nav-fragment}"></header>
+    <div>
+        <h1 class="card-title">Movies Hints</h1>
+        <br>
+        <a class="ex-button" th:href="@{/library}">Library Home</a>
+        <a class="ex-button" th:href="@{/library/movies/movieHome}">Movies Feature Home</a>
+        <a class="ex-button" th:href="@{/library/instructions/movies}"> Instructions </a>
+    </div>
+
+    <section class="instruction-card">
+        <h3>Delete Movie:</h3>
+        <br>
+        <div class="img-container">
+            <br/>
+            <img th:src="@{/library/moviesImages/Hints/DeleteMovie.png}" alt="Delete Movie" class="img-thumbnail">
+            <br>
+        </div>
+
+    </section>
+
+    <br>
+
+    <section class="instruction-card">
+        <h3>Save A Movie</h3>
+        <br>
+        <div class="img-container">
+            <br/>
+            <img th:src="@{/library/moviesImages/Hints/saveMovie.png}" alt="Add Movies Page" class="img-thumbnail">
+            <br>
+        </div>
+
+
+    </section>
+
+    <br>
+
+    <section class="instruction-card">
+        <h3>Find Movie By ID:</h3>
+        <br>
+        <div class="img-container">
+            <br/>
+            <img th:src="@{/library/moviesImages/Hints/searchMovieById.png}" alt="Find Movie By ID Page" class="img-thumbnail">
+            <br>
+        </div>
+    </section>
+
+    <br>
+
+    <section class="instruction-card">
+        <h3>Find Movie By Director:</h3>
+        <br>
+        <div class="img-container">
+            <br/>
+            <img th:src="@{/library/moviesImages/Hints/searchByDirector.png}" alt="Search By Director Page" class="img-thumbnail">
+            <br>
+        </div>
+    </section>
+
+    <br>
+
+    <section class="instruction-card">
+        <h3>Find Movie By Title:</h3>
+        <br>
+        <div class="img-container">
+            <br/>
+            <img th:src="@{/library/moviesImages/Hints/searchByTitle.png}" alt="Search By Title Page" class="img-thumbnail">
+            <br>
+            <a class="button"  onclick="hidePicture(this)">Hide Picture</a>
+        </div>
+            <a class="button show-button inactive"  onclick="showPicture(this)">Show Picture</a>
+    </section>
+
+    <br>
+
+    <section class="instruction-card">
+        <h3>Find Movie By Genre:</h3>
+        <br>
+        <div class="img-container">
+            <br/>
+            <img th:src="@{/library/moviesImages/Hints/searchByGenre.png}" alt="Search By Genre Page" class="img-thumbnail">
+            <br>
+        </div>
+
+
+    </section>
+
+    <br>
+
+    <section class="instruction-card">
+        <h3>Update Movie Description:</h3>
+        <br>
+        <div class="img-container">
+            <br/>
+            <img th:src="@{/library/moviesImages/Hints/updateDesc.png}" alt="Update Movie Description Page" class="img-thumbnail">
+            <br>
+        </div>
+    </section>
+
+    <br>
+
+    <section class="instruction-card">
+        <h3>Search By Movie ID:</h3>
+        <br>
+        <div class="img-container">
+            <br/>
+            <img th:src="@{/library/moviesImages/Hints/searchMovieById.png}" alt="Search Movie By ID Page" class="img-thumbnail">
+            <br>
+        </div>
+    </section>
+
+
+</body> 
+</html>
