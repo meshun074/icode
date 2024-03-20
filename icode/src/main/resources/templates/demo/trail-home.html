@@ -29,9 +29,22 @@
 		</header>
 		<h1>Welcome Explorer</h1>
 		<h2>All Trails</h2>
-		<form th:action="@{/search}" method="post">
+		<!--
+ 			th:action - this defines the mapping we are looking for in the controller
+ 			method - defines the type of mapping 
+
+				get - for GetMapping (all 'a' tags are get mapping)
+				 Information is sent in the path and can be retrieved with @PathVariable
+				  @{|/trail/find/${trail.id}|} -> GetMapping(/trail/find/{id})
+		          @{/trail/find/{id}((id)=${trail.id})} -> GetMapping(/trail/find/{id})
+
+				post - for PostMapping  
+				 Information is sent in the body and can be retrieved with @RequestParam
+				 name - defines the name of the parameter
+		-->
+		<form th:action="@{/trail/search}" method="post">
 			<input type="text" name="location" placeholder="Search by trail location">
-			<input type="submit" value="Search" disabled="true">
+			<input type="submit" value="Search">
 		</form>
 		<div class="trail" th:each="trail : ${trails}">
 			<p th:text="${trail.name}">

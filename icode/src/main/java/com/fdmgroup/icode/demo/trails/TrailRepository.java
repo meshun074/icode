@@ -45,4 +45,25 @@ public class TrailRepository {
 		return Optional.ofNullable(null);
 	}
 	
+	/*
+	 * Create a new list of trails we want to return
+	 * 		new ArrayList<>()
+	 * Loop through the existing list of trails and
+	 * 		add trails to new list that have a location matching that of the 
+	 * 		search location
+	 * return the new list of trails
+	 */
+
+	public List<Trail> findTrailsByLocation(String location) {
+		List<Trail> foundTrails = new ArrayList<>();
+		// For (DataType currentItem : collection)
+		for(Trail currentTrail : trails) {
+			if(currentTrail.getLocation().equalsIgnoreCase(location)) {
+				// Reach here only if returns true
+				foundTrails.add(currentTrail);
+			}
+		}
+		return foundTrails;
+	}
+	
 }
