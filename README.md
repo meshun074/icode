@@ -137,4 +137,5 @@ Done! You are set to go!
 <br /> [Zavier Paulino](https://github.com/Zp1021/Introduction)
  <br /> [Kai-Yin Huang](https://github.com/katehuangishere/introduction)
 <br /> [Jarin Tasnim](https://github.com/JTasnim24/introduction)
+<br /> [Fritz Guerilus](https://github.com/mrfritzg/introduction)
 
