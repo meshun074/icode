@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" href="data:image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-journal-code' viewBox='0 0 16 16'>
+        <path fill-rule='evenodd' d='M8.646 5.646a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L10.293 8 8.646 6.354a.5.5 0 0 1 0-.708m-1.292 0a.5.5 0 0 0-.708 0l-2 2a.5.5 0 0 0 0 .708l2 2a.5.5 0 0 0 .708-.708L5.707 8l1.647-1.646a.5.5 0 0 0 0-.708'/>
+        <path d='M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2'/>
+        <path d='M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z'/>
+      </svg>">
+	<link rel="stylesheet" th:href="@{/styles.css}">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+	<link rel="stylesheet" th:href="@{/library/libraryCSSFiles/eventFeature.css}">
+
+
+	<title>Library Events Feature</title>
+</head>
+
+<body>
+	<header th:insert="~{nav :: nav-fragment}"></header>
+	<div class="main-container">
+		<h1 class="card-title">Library Events Feature Instructions</h1>
+		<br>
+		<div class="text-center bg-light">
+			<a class="ex-button" th:href="@{/library}">Library Home</a>
+			<a class="ex-button" th:href="@{/library/events/eventHome}">Event Feature Home</a>
+			<a class="ex-button" th:href="@{/library/solutions/eventSolutions}"> Hints </a>
+		</div>
+	</div>
+
+	<section class="instruction-card">
+		<h3>Overview</h3>
+		<p>Welcome to the Library Events Feature! This feature allows users to explore and participate in various
+			community events organized by our library.
+			These events bring together our diverse neighbors and help in community building.
+		</p>
+		<br>
+		<p>
+			Every minute our site has a bug may result in missed opportunities for community engagement.
+			So, please hurry and help us fix the bug in the Events Features.
+		</p>
+	</section>
+
+	<section class="instruction-card">
+		<h3>Task 1</h3>
+		<br />
+		<p>
+			Community outreach is impossible without community building. Our Library Events bring together our diverse
+			neighbors. So, it is vital that you fix the bug in the "AllEvents" page.
+			Make sure that the "AllEvents" page displays the events. For now, don't worry about sorting them just make
+			sure they display
+		</p>
+		<br>
+		<div class="img-container">
+			<h3>Sample Table: </h3>
+			<img th:src="@{/library/eventImages/AllEvents.png}" alt="All Library Events" lass="img-thumbnail">
+		</div>
+		<br>
+		<p>
+		<ol>To Do:
+			<li>Review the "allEvents.html" template </li>
+			<li>Review the "EventController" class to make sure the correct logic is implemented to render the content.
+			</li>
+			<li>Review the "EventService" class to make sure the correct logic is implemented to retrieve the events.
+			</li>
+			<li>Review the "EventRepository" class to make sure the correct logic is implemented to retrieve the events.
+			</li>
+		</ol>
+		</p>
+
+		<p>
+			Once you have fixed the bug, you can move on to the next task....Good Luck!
+		</p>
+
+	</section>
+
+	<section class="instruction-card">
+		<h3>Task 2 </h3>
+		<br>
+
+		<div style="text-align: center;">
+			<blockquote>
+				<p>"By Failing to prepare, you are preparing to fail."</p>
+				<footer>--Benjamin Franklin</footer>
+			</blockquote>
+		</div>
+
+		<p>
+			We cannot let our community down. So, our second Task is to debug the add new event feature to the Library
+			event list.
+			To fix the bug, go to the EventController to check that the appropriate code is there to render the AddEvent
+			page. Once the correct
+			code is in place, you will need to edit the AddEvent.html page to making sure the form adds a new event to
+			the Library event list and redirects
+			users to the allEvents page. Don't worry about sorting them just make sure the new event is displayed and
+			added to the event list.
+		</p>
+		<br>
+		<div class="img-container">
+			<h3>Sample Form: </h3>
+			<img th:src="@{/library/eventImages/CreateEvent.png}" alt="Add New Event" class="img-thumbnail">
+		</div>
+		<br>
+		<p>
+		<ol>To Do:
+			<li>Review the "CreateEvent.html" template to understand the Get/Post method calls it is making </li>
+			<li>Review the "EventController" class to make sure the correct logic is implemented to render the
+				CreateEvent page.</li>
+			<li>Review the "EventService" class to make sure the correct logic is implemented to create a new event.
+			</li>
+			<li>Review the "EventRepository" class to make sure the correct logic is implemented to save the new event.
+			</li>
+		</ol>
+		</p>
+	</section>
+
+	<section class="instruction-card">
+		<h3>Task 3</h3>
+		<br />
+		<p>Unfortunate situations occur, but that is no reason to spread misinformation. While we hate to cancel events,
+			it is worst to have our patrons attend events that have been canceled.
+			Please fix the bug in the "CancelEvent" page. Make sure the event can be found by the eventId. Once the
+			event is found, confirm with the user that they want to cancel the event by Deleting it permanently.
+			Once the event is deleted, the user should be redirected to the allEvents page and see the updated event
+			list
+		</p>
+		<br>
+		<div class="img-container">
+			<h3>Sample UI: </h3>
+			<img th:src="@{/library/eventImages/DeleteEvent.png}" alt="Delete Event" class="img-thumbnail">
+		</div>
+		<br>
+		<p>
+		<ol>To Do:
+			<li>Review the "DeleteEventById.html" template to understand the Get/Post method calls it is making </li>
+			<li>Review the "EventController" class to make sure the correct logic is implemented to render the
+				DeleteEventById page.</li>
+			<li>Review the "EventService" class to make sure the correct logic is implemented to delete an event.</li>
+			<li>Review the "EventRepository" class to make sure the correct logic is implemented to delete an event.
+			</li>
+		</ol>
+		</p>
+	</section>
+
+	<section class="instruction-card">
+		<h3>Task 4</h3>
+		<br />
+		<p>We are very thankful to our patrons donations. However, we must do our part. Selling tickets for events is a
+			great way to foundraise. Please make sure the "PurchaseEventTickets" page
+			displays all the upcoming events. It must have a form for our patrons to purchase tickets. To successfully
+			submit the form, the user must include their Name, Email, Library Card Number, the Event Name,
+			and the number of tickets they want to purchase. At this moment, we will just reserve the tickets and they
+			can pay at the door.
+		</p>
+		<br>
+		<p>
+			When the user submits the form, they should be prompted to confirm their purchase. Once the user confirms
+			the purchase, they should be redirected to the confirmation page.
+		</p>
+		<br>
+		<div class="img-container">
+			<h3>Sample UI: </h3>
+			<img th:src="@{/library/eventImages/PurchasePage.png}" alt="Purchase Event Tickets" class="img-thumbnail">
+		</div>
+		<br>
+		<div class="img-container">
+			<h3>Sample Confirmation Page: </h3>
+			<img th:src="@{/library/eventImages/Confirmation.png}" alt="Purchase Confirmation" class="img-thumbnail">
+		</div>
+		<br>
+		<p>
+		<ol>To Do:
+			<li>Review the "PurchaseEventTickets.html" template to understand the Get/Post method calls it is making
+			</li>
+			<li>Review the "EventController" class to make sure the correct logic is implemented to render the
+				PurchaseEventTickets page.</li>
+			<li>Review the "EventService" class to make sure the correct logic is implemented to purchase tickets for an
+				event.</li>
+			<li>Review the "EventRepository" class to make sure the correct logic is implemented to purchase tickets for
+				an event.</li>
+		</ol>
+		</p>
+		<br>
+	</section>
+
+	<section class="instruction-card">
+		<h3>Task 5</h3>
+		<br />
+		<p>Our fifth task is to add a new feature by allowing users to update the event Location.
+			You need to make sure the Event controller has the correct path that allows users to navigate to the Update
+			Event Location page.
+			First, the user will be prompted to select the event they want to update the location for.
+		</p>
+		<br>
+		<p>
+			A form should be displayed that allows the user to update the location for the selected event by the event
+			Id.
+			Once the user submits the form, they should be redirected to a page where they can update the location for
+			the selected event.
+		</p>
+		<br>
+		<div class="img-container">
+			<h3>Sample UI: </h3>
+			<img th:src="@{/library/eventImages/UpdateLocation.png}" alt="Update Event Location" class="img-thumbnail">
+		</div>
+		<br>
+		<p>
+		<ol>To Do:
+			<li>Review the "UpdateEventLocationById.html" template to understand the Get/Post method calls it is making
+			</li>
+			<li>Review the "EventController" class to make sure the correct logic is implemented to render the
+				UpdateEventLocationById page.</li>
+			<li>Review the "EventService" class to make sure the correct logic is implemented to update an event
+				location.</li>
+			<li>Review the "EventRepository" class to make sure the correct logic is implemented to update an event
+				location.</li>
+		</ol>
+		</p>
+
+	</section>
+
+	<section class="instruction-card">
+		<h3>Task 6</h3>
+		<br />
+		<p>The final task in the Event feature is "Update Description By Id". Make sure the user can search for a
+			library event using the eventId. If the event exists, the details associated with this event should be
+			displayed for
+			the user.
+		</p>
+		<br>
+		<p>
+			If the event exists, a separate form should offer the user an opportunity to update the event description
+			and save the changes.
+			Once the user saves the changes, they should be redirected to the allEvents page and see the updated event
+			description.
+		</p>
+		<br>
+		<div class="img-container">
+			<h3>Sample UI: </h3>
+			<img th:src="@{/library/eventImages/UpdateDescription.png}" alt="Update Event Description"
+				class="img-thumbnail">
+		</div>
+		<br>
+		<p>
+		<ol>To Do:
+			<li>Review the "UpdateEventDescriptionById.html" template to understand the Get/Post method calls it is
+				making </li>
+			<li>Review the "EventController" class to make sure the correct logic is implemented to render the
+				UpdateEventDescriptionById page.</li>
+			<li>Review the "EventService" class to make sure the correct logic is implemented to update an event
+				description.</li>
+			<li>Review the "EventRepository" class to make sure the correct logic is implemented to update an event
+				description.</li>
+		</ol>
+		</p>
+	</section>
+	</div>
+
+
+
+</body>
+
+</html>

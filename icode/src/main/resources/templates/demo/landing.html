@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Demo</title>
+	<link rel="icon" href="data:image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-journal-code' viewBox='0 0 16 16'>
+  <path fill-rule='evenodd' d='M8.646 5.646a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L10.293 8 8.646 6.354a.5.5 0 0 1 0-.708m-1.292 0a.5.5 0 0 0-.708 0l-2 2a.5.5 0 0 0 0 .708l2 2a.5.5 0 0 0 .708-.708L5.707 8l1.647-1.646a.5.5 0 0 0 0-.708'/>
+  <path d='M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2'/>
+  <path d='M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z'/>
+</svg>">
+	<link rel="stylesheet" th:href="@{/styles.css}">
+	<link rel="stylesheet" th:href="@{/demo/demo.css}">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<header th:insert="~{nav :: nav-fragment}"></header>
+	<div class="container">
+		<div class="row g-2">
+			<secion class="p-3 rounded bg-light">
+				<h1>What is Java?</h1>
+				<p th:if="${session.javaAnswer} eq true">Java is a software development language. It is an
+					object-oriented langauge
+					that can be used to code everything from mobile apps to enterprise software.</p>
+				<a th:if="${session.javaAnswer} eq false" th:href="@{/toggle/javaAnswer}">Show</a>
+				<a th:if="${session.javaAnswer} eq true" th:href="@{/toggle/javaAnswer}">Hide</a>
+				<hr />
+
+				<h2>What does object-oriented mean?</h2>
+				<div th:if="${session.oopAnswer} eq true">
+					<p>OOP is a method of developing programs where code is encapsulated in different files or data
+						types.
+						This allows code to be focused and follow <a th:href="@{/toggle/solidAnswer}">SOLID</a>
+						standards of coding.
+					<div th:if="${session.solidAnswer} eq true">
+						&nbsp; <b>S</b> - Single Responsibility Principle - responsible for one thing <br />
+						&nbsp; <b>O</b> - Open Closed Principle - open to extension, closed for modification <br />
+						&nbsp; <b>L</b> - Liskov Substitution Principle - Superclasses should be replaceable by
+						subclasses<br />
+						&nbsp; <b>I</b> - Interface Segregation Principle - interfaces must remain focused <br />
+						&nbsp; <b>D</b> - Dependency Inversion Principle - depend on abstractions instead of
+						concretions<br />
+					</div><br />
+					Several different types of Objects (data types) exist within Java, the most commonly used include: <a
+						th:href="@{/toggle/classAnswer}">Class</a>,
+					<a th:href="@{/toggle/interfaceAnswer}">Interface</a>, and <a
+						th:href="@{/toggle/enumAnswer}">ENUM</a>.
+					<div th:if="${session.classAnswer} eq true">
+						Classes defines the blue print of an object. Classes that only store persistable information can be called POJOs (Plain Old Java Objects).
+						<ul>
+							<li>Attributes (fields) - what a class can store</li>
+							<li>Methods (behaviors) - functions a class can perform</li>
+							<li>Access modifiers -<span class="code"> default private protected public</span></li>
+						</ul>
+					</div>
+					<div th:if="${session.interfaceAnswer} eq true">
+						Interfaces define behaviors.
+						<ul>
+							<li>Attributes (if present) - public static final</li>
+							<li>Access modifiers - public - do not need to define</li>
+						</ul>
+					</div>
+					<div th:if="${session.enumAnswer} eq true">
+						ENUMs define attributes.
+						<ul>
+							<li>Access modifiers - public - do not need to define</li>
+							<li>Static and Final</li>
+						</ul>
+					</div>
+					Object-oriented programming stands on <a th:href="@{/toggle/pillarAnswer}">four pillars</a>.
+					</p>
+					<div th:if="${session.pillarAnswer} eq true">
+						<ol>
+							<li>
+								Encapsulation <a  th:href="@{/toggle/encapAnswer}" th:if="${session.encapAnswer} eq false"><i class="bi bi-chevron-double-right"></i></a><a th:href="@{/toggle/encapAnswer}" th:if="${session.encapAnswer} eq true"><i class="bi bi-chevron-double-left"></i></a>
+								<div th:if="${session.encapAnswer} eq true">
+									The act of storing data (e.g., attributes, fields, variables) and methods (behaviors) in one unit.
+									<div class=" rounded p-2 bg-dark code">
+										public class <span class="code-class">Person</span> {<br/>
+											&nbsp; private <span class="code-class">String</span> <span class="code-variable">name</span>;<br/>
+											&nbsp; private int <span class="code-variable">dateOfBirth</span>;<br/><br/>
+											
+											&nbsp; <span class="dark"> // Getter example</span><br/>
+											&nbsp; public <span class="code-class">String</span> <span class="code-method">getName</span>(){<br/>
+												&nbsp; &nbsp; return <span class="code-class">this</span>.<span class="code-variable">name</span>;<br/>
+											&nbsp;}<br/>
+										}
+								</div>
+							</li>
+							<li>
+								Inheritance<a  th:href="@{/toggle/inheritAnswer}" th:if="${session.inheritAnswer} eq false"><i class="bi bi-chevron-double-right"></i></a><a th:href="@{/toggle/inheritAnswer}" th:if="${session.inheritAnswer} eq true"><i class="bi bi-chevron-double-left"></i></a>
+								<div th:if="${session.inheritAnswer} eq true">
+									The act of gaining attributes and/or behaviors from other objects.
+									<ul>
+										<li>Data types can only extend from one superclass</li>
+										<li>Classes can implement n number of interfaces</li>
+									</ul>
+									<div class=" rounded p-2 bg-dark code">
+										public abstract class <span class="code-class">Student</span> {<br/>
+											&nbsp; private <span class="code-class">String[]</span> <span class="code-variable">classes</span>;<br/>
+											
+											&nbsp; public abstract void <span class="code-method">takeExam</span>();<br/>
+											&nbsp;}<br/>
+										}
+								</div><br/>
+								<div class=" rounded p-2 bg-dark code">
+										public <span class="code-variable">interface </span><span class="code-class">IPayTaxes</span> {<br/>
+											&nbsp; void <span class="code-method">payTaxes</span>();<br/>
+										}
+								</div><br/>
+									<div class=" rounded p-2 bg-dark code">
+										public class <span class="code-class">Person</span> extends <span class="code-class">Student</span> implements <span class="code-variable"> IPayTaxes </span>{<br/>
+										}
+								</div>
+							</li>
+							<li>
+								Abstraction <a  th:href="@{/toggle/abstractAnswer}" th:if="${session.abstractAnswer} eq false"><i class="bi bi-chevron-double-right"></i></a><a th:href="@{/toggle/abstractAnswer}" th:if="${session.abstractAnswer} eq true"><i class="bi bi-chevron-double-left"></i></a>
+								<div th:if="${session.abstractAnswer} eq true">
+									The act of hiding the implementation details from user; only providing minimum necessary code.
+									<div class=" rounded p-2 bg-dark code">
+										public class <span class="code-class">Runner</span> {<br/>
+											&nbsp; public static void <span class="code-method">main</span>(<span class="code-class">String[]</span> <span class="variable">args</span>){<br/>
+												&nbsp;<span class="code-class">Person</span> <span class="code-variable">person</span><span class="dark">=</span> new <span class="code-class">Person</span><span class="dark">();</span><br/>
+												&nbsp; <span class="code-variable">person</span><span class="dark">.</span><span class="code-method">payTaxes</span><span class="dark">();</span><br/>
+											&nbsp; }<br/>
+										}
+								</div>
+							</li>
+							<li>
+								Polymorphism
+								<a  th:href="@{/toggle/polyAnswer}" th:if="${session.polyAnswer} eq false"><i class="bi bi-chevron-double-right"></i></a><a th:href="@{/toggle/polyAnswer}" th:if="${session.polyAnswer} eq true"><i class="bi bi-chevron-double-left"></i></a>
+								<div th:if="${session.polyAnswer} eq true">
+									The ability for methods to take many forms.
+									<ul>
+										<li>
+											Overloading - same method name, different parameters (order, number, type) - compile time
+										</li>
+										<li>
+											Overriding - inherited method, different implementation - runtime 
+										</li>
+									</ul>
+							</li>
+						</ol>
+					</div>
+				</div>
+
+				<a th:if="${session.oopAnswer} eq false" th:href="@{/toggle/oopAnswer}">Show</a>
+				<a th:if="${session.oopAnswer} eq true" th:href="@{/toggle/oopAnswer}">Hide</a>
+				<hr />
+				<h2>DataTypes and Keywords</h2>
+				<div class="p-3 rounded bg-dark">
+					<h3 class="dark">Primitives</h3>
+					<p class="code">boolean (true or false), int, long (whole numbers), double, char</p>
+					<h3 class="dark">Reference</h3>
+					<p class="code-class">Object, String, [User created]</p>
+					<hr />
+				</div>
+				<hr />
+				<div class="p-3 rounded bg-dark">
+					<h3 class="code">abstract</h3><p class="dark"> - class cannot be instantiated, method implementation is defined in subclass</p>
+					<h3 class="code">static</h3><p class="dark"> - owned by the class, not any instance</p>
+					<h3 class="code">final</h3><p class="dark"> - can not be changed, overriden, or extended</p>
+				</div>
+			</secion>
+		</div>
+		<div class="row p-3 g-2">
+			<section class="p-3 rounded bg-light">
+				<h1>What is Spring Boot?</h1>
+				<div th:if="${session.springAnswer} eq true">
+					<p> Open-source framework that leads to quick full-stack applications.
+						It is lightweight and is made up of a collection of .jar files.
+					</p>
+					<h2>Benefits</h2>
+					<ul>
+						<li>Lightweight</li>
+						<li>Inversion of Control</li>
+						<li>Everywhere</li>
+						<li>Flexible</li>
+						<li>Fast - live reload and auto configurations</li>
+					</ul>
+				</div>
+				<a th:if="${session.springAnswer} eq false" th:href="@{/toggle/springAnswer}">Show</a>
+				<a th:if="${session.springAnswer} eq true" th:href="@{/toggle/springAnswer}">Hide</a>
+				<hr />
+				<h1>What is Thymleaf?</h1>
+				<section th:if="${session.thymAnswer} eq true">
+					<p> Server-side template engine used to process HTML, XML, JavaScript, CSS and even plain text. The goal of Thymleaf is to create maintainable HTML templates</p>
+				<p> To add Thymleaf to HTML, you add 'xmlns:th="http://thymeleaf.org' to the openning html tag.</p>
+				<p class="code-class">View Available <a th:href="@{/toggle/expressAnswer}"> Thymleaf expressions</a></p>
+				<div th:if="${session.expressAnswer} eq true">
+					<ul>
+						<li>
+							<b>th:text</b>- will insert text associated with given attribute (line 241)
+						</li>
+						<li>
+							<b>th:href</b>- associates a link with the desired GetMapping location (line 198)
+						</li>
+						<li>
+							<b>th:action</b>- associates a form with the desired mapping location (line 236)
+						</li>
+						<li>
+							<b>th:each</b>- iterates through a collection of objects e.g., 'th:each ='pet : ${pets}''
+							(trail-home.html line 36)
+						</li>
+						<li>
+							<b>th:object</b>- binds an object to a specific section or form (trail-create.html line 26)
+						</li>
+						<li>
+							<b>th:field</b>- accesses a field of an object (trail-create.html line 28)
+						</li>
+						<li>
+							<b>th:if</b>- conditionally displays information (${ifVariable} eq true, false, null, etc.) (line 199)
+						</li>
+						<li>
+							<b>th:fragment</b>- creates a reuseable block of code (nav.html line 9)
+						</li>
+						<li>
+							<b>th:insert</b>- inserts a reuseable block of code (line 26)
+						</li>
+					</ul>
+				</div>
+				<p>
+					You can display information from the back-end using the Model or Session
+					<ul>
+						<li>Information stored on the model will be available for one transaction -- access by ${attributeName}</li>
+						<li>Information stored on the session will be available so long as the session is valid -- access by ${session.attributeName}</li>
+					</ul>
+					<form th:action="@{/demo/model}" method="post">
+						<label>This value will not exist forever</label>
+						<input type="text" name="testModel">
+						<input type="submit" value="Test Model">
+					</form>
+					<h2 th:text="${testModel}"></h2>
+					<form th:action="@{/demo/session}" method="get">
+						<label>This value will exist until invalid</label>
+						<input type="text" name="testSession">
+						<input type="submit" value="Test Session">
+					</form>
+					<h2 th:text="${session.test}"></h2>
+					<a th:href="@{/demo/invalidate}">Invalidate Session</a>
+				</p>
+				</section>
+				<a th:if="${session.thymAnswer} eq false" th:href="@{/toggle/thymAnswer}">Show</a>
+				<a th:if="${session.thymAnswer} eq true" th:href="@{/toggle/thymAnswer}">Hide</a>
+			</section>
+		</div>
+		<div class="pb-4 row g-2">
+			<secion class="p-3 rounded bg-light">
+				<h1>Ready to start coding?</h1>
+					<form th:action="@{/trail}" method="get">
+						<input type="submit" value="YES!">
+					</form>
+				<hr />
+			</secion>
+		</div>
+	</div>
+</body>
+
+</html>

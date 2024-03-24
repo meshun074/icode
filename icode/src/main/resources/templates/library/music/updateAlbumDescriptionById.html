@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8"> 
+	<link rel="icon" href="data:image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-journal-code' viewBox='0 0 16 16'>
+        <path fill-rule='evenodd' d='M8.646 5.646a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L10.293 8 8.646 6.354a.5.5 0 0 1 0-.708m-1.292 0a.5.5 0 0 0-.708 0l-2 2a.5.5 0 0 0 0 .708l2 2a.5.5 0 0 0 .708-.708L5.707 8l1.647-1.646a.5.5 0 0 0 0-.708'/>
+        <path d='M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2'/>
+        <path d='M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z'/>
+      </svg>">
+          <link rel="stylesheet" th:href="@{/styles.css}">
+          <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+              integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+              crossorigin="anonymous"></script>
+          <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+              integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+              crossorigin="anonymous"></script>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+              integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+              crossorigin="anonymous"></script>
+
+
+	<link rel="stylesheet" th:href="@{/library/libraryCSSFiles/musicFeature.css}">
+
+    <title>Update Album Description By Id</title>
+</head>
+<body>
+<header th:insert="~{nav :: nav-fragment}"></header>
+<div class="main-container">
+
+
+	<div>
+        <h3 class="card-title">Update Album Description By Id</h3>
+		<div class="mt-5 bg-light">
+			<a class="ex-button" th:href="@{/library}">Library Home</a>
+			<a class="ex-button"th:href="@{/library/music/musicHome}">Music Feature Home</a>
+			<a class="ex-button" th:href="@{/library/instructions/music}">Instructions</a>
+		</div>
+	</div>
+		<br>
+	<section>
+		<form class="mt-5 card" th:action="@{'/library/music/searchAlbumDescription'}" method="GET">
+			<label>Enter Album Id:</label><br />
+			<input class="text-color" type="text" name="musicId"><br />
+			<input type="submit" class="button-break" value="Search">
+		</form>	
+	</section>
+	
+	<br/>
+	
+	
+	<section>    
+		<div  th:if="${album != null}">
+			<div class="card">
+				<h2>Album Details</h2>
+				<p>Id: <span th:text="${album.musicId}"></span></p>
+				<p>Title: <span th:text="${album.title}"></span></p>
+				<p>Artist: <span th:text="${album.artistName}"></span></p>
+                <p>Genre: <span th:text="${album.genre}"></span></p>
+                <p>Type: <span th:text="${album.type}"></span></p>
+				<p>Description: <span th:text="${album.description}"></span></p>
+			</div>
+		</div>
+		<br>
+		<div th:if="${album != null}">	
+			<div class="card">
+				<form id="updateForm" th:action="@{'/library/music/' + ${album.musicId} + '/updateAlbumDescription'}" th:object="${album}" method="POST">
+					<label>Input NEW Album Description:  </label><br/>
+					<textarea class="text-color" th:field="*{description}" id="updatedDescription"></textarea><br/>
+					<input type="submit" class="button-break" value="Update Description">
+				</form>
+			</div>
+		</div>
+				
+		<div th:if="${errorMessage}">
+			<p th:text="${errorMessage}"></p>
+		</div>
+	</section>
+</div>
+
+ 
+</body>
+</html>
